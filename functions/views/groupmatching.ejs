@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>공팅</title>
+    <link rel="stylesheet" href="css/MatchingSet.css">
+    <link rel="icon" href="pavicon/pavicon_png.png">
+</head>
+<body>
+    <div class="body">
+        <header>
+            <div id="back-icon">
+                <a href="">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none">
+                        <path d="M24.8414 12.8414L15.6827 22L24.8414 31.1587" stroke="#111111" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+                <p>그룹 매칭 신청</p>
+                <a id="x-botton" href="/">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none">
+                        <path d="M28.9956 15.0061L15.0073 28.9915M29 29L15 15" stroke="#111111" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </div>
+        </header>
+          <section>
+            <form>
+
+                <div class="profile-dropdown">
+                    <div id="frist" >
+                        <div id="stepbar">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="420" height="4" viewBox="0 0 420 4" fill="none">
+                                <rect x="20" width="380" height="4" rx="2" fill="#EAE9E9"/>
+                                <rect x="20" width="47" height="4" rx="2" fill="#7D67FF"/>
+                                </svg>
+                        </div>
+                        <div class="title">
+                            <p id="title-text">친구와 함께 신청하시나요?</p>
+                            <p id="sub-text">혼자 신청해도 단체매칭을 자동으로 연결해드려요.</p>
+                        </div>
+                        <div id="profile-dropdown-center">
+                            <div id="myprofileSetting">
+                                <div class="sex-group">
+                                    <div class="sex-checkbox">
+                                        <input type="checkbox" id="alone" name="wishcount" value="혼자" onclick="mbtiCheckbox('alone', 'together')">
+                                        <label for="alone">
+                                            <p class="sex-title">혼자</p>
+                                        </label>
+                            
+                                        <input type="checkbox" id="together" name="wishcount" value="친구" onclick="mbtiCheckbox('alone', 'together')">
+                                        <label for="together">
+                                            <p class="sex-title">친구와 함께</p>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            
+                        </div>
+                        
+                        <div id="div-button">
+                            <button onclick="fristDone(event)" id="next"> 다음 </button>
+                        </div>
+                    </div>
+
+                    <div id="second" style="display: none;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="420" height="4" viewBox="0 0 420 4" fill="none">
+                            <rect x="20" width="380" height="4" rx="2" fill="#EAE9E9"/>
+                            <rect x="20" width="132" height="4" rx="2" fill="#7D67FF"/>
+                            </svg>
+                        <div class="title">
+                            <p id="title-text">참여자 정보</p>
+                            <p id="sub-text">모든 참여자의 정보를 입력해주세요.</p>
+                        </div>
+                        <div id="profile-dropdown-center">
+                            <p id="participant">참여자1</p>
+                            <div id="myprofileSetting">
+                                <div id="name">
+                                    <p class="title-box"></p>
+                                    <input type="text" placeholder="이름을 입력하세요." id="name1">
+                                </div>
+                                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="age1">
+                                    <option selected>나이</option>
+                                    <option value="19">19</option>
+                                    <option value="20">20</option>
+                                    <option value="21">21</option>
+                                    <option value="22">22</option>
+                                    <option value="23">23</option>
+                                    <option value="24">24</option>
+                                    <option value="25">25</option>
+                                    <option value="26">26</option>
+                                    <option value="27">27</option>
+                                    <option value="28">28</option>
+                                    <option value="29">29</option>
+                                    <option value="30">30</option>
+                                    <option value="31">31</option>
+                                    <option value="32">32</option>
+                                </select>
+                                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="major1">
+                                    <option selected>학과</option>
+                                    <option >컴퓨터 공학부 - 컴퓨터공학</option>
+                                    <option >컴퓨터 공학부 - 소프트웨어</option>
+                                    <option >게임공학과</option>
+                                    <option >인공지능학과</option>
+                                    <option >기계공학과</option>
+                                    <option >기계설계공학부 - 기계설계전공</option>
+                                    <option >기계설계공학부 - 지능형모빌리티전공</option>
+                                    <option >메카트로닉스공학부 - 메카트로닉스공학 전공</option>
+                                    <option >메카트로닉스공학부 - AI로봇 전공</option>
+                                    <option >전자공학부 - 전자공학전공</option>
+                                    <option >전자공학부 - 임베디드시스템전공</option>
+                                    <option >신소재공학과</option>
+                                    <option >생명화학공학과</option>
+                                    <option >나노반도체공학과</option>
+                                    <option >에너지 전기공학과</option>
+                                    <option >경영학부 - 경영학전공</option>
+                                    <option >경영학부 - 데이터사이언스경영전공</option>
+                                    <option >경영학부 - IT경영전공</option>
+                                    <option >디자인공학부 - 산업디자인공학전공</option>
+                                    <option >디자인공학부 - 미디어디자인공학전공</option>
+                                    <option >산업융합공학과 디지털경영학과</option>
+                                </select>
+                            </div>
+                            <div id="profile-dropdown-center">
+                                <p id="participant">참여자2</p>
+                                <div id="myprofileSetting">
+                                    <div id="name">
+                                        <p class="title-box"></p>
+                                        <input type="text" placeholder="이름을 입력하세요." id="name2" >
+                                    </div>
+                                    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="age2">
+                                        <option selected>나이</option>
+                                        <option value="19">19</option>
+                                        <option value="20">20</option>
+                                        <option value="21">21</option>
+                                        <option value="22">22</option>
+                                        <option value="23">23</option>
+                                        <option value="24">24</option>
+                                        <option value="25">25</option>
+                                        <option value="26">26</option>
+                                        <option value="27">27</option>
+                                        <option value="28">28</option>
+                                        <option value="29">29</option>
+                                        <option value="30">30</option>
+                                        <option value="31">31</option>
+                                        <option value="32">32</option>
+                                    </select>
+                                    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="major2">
+                                        <option selected>학과</option>
+                                        <option >컴퓨터 공학부 - 컴퓨터공학</option>
+                                        <option >컴퓨터 공학부 - 소프트웨어</option>
+                                        <option >게임공학과</option>
+                                        <option >인공지능학과</option>
+                                        <option >기계공학과</option>
+                                        <option >기계설계공학부 - 기계설계전공</option>
+                                        <option >기계설계공학부 - 지능형모빌리티전공</option>
+                                        <option >메카트로닉스공학부 - 메카트로닉스공학 전공</option>
+                                        <option >메카트로닉스공학부 - AI로봇 전공</option>
+                                        <option >전자공학부 - 전자공학전공</option>
+                                        <option >전자공학부 - 임베디드시스템전공</option>
+                                        <option >신소재공학과</option>
+                                        <option >생명화학공학과</option>
+                                        <option >나노반도체공학과</option>
+                                        <option >에너지 전기공학과</option>
+                                        <option >경영학부 - 경영학전공</option>
+                                        <option >경영학부 - 데이터사이언스경영전공</option>
+                                        <option >경영학부 - IT경영전공</option>
+                                        <option >디자인공학부 - 산업디자인공학전공</option>
+                                        <option >디자인공학부 - 미디어디자인공학전공</option>
+                                        <option >산업융합공학과 디지털경영학과</option>
+                                    </select>
+                                </div>
+                                <p id="participant">참여자3</p>
+                                <div id="myprofileSetting">
+                                    <div id="name">
+                                        <p class="title-box"></p>
+                                        <input type="text" placeholder="이름을 입력하세요." id="name3" >
+                                    </div>
+                                    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="age3">
+                                        <option selected>나이</option>
+                                        <option value="19">19</option>
+                                        <option value="20">20</option>
+                                        <option value="21">21</option>
+                                        <option value="22">22</option>
+                                        <option value="23">23</option>
+                                        <option value="24">24</option>
+                                        <option value="25">25</option>
+                                        <option value="26">26</option>
+                                        <option value="27">27</option>
+                                        <option value="28">28</option>
+                                        <option value="29">29</option>
+                                        <option value="30">30</option>
+                                        <option value="31">31</option>
+                                        <option value="32">32</option>
+                                    </select>
+                                    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="major3">
+                                        <option selected>학과</option>
+                                        <option >컴퓨터 공학부 - 컴퓨터공학</option>
+                                        <option >컴퓨터 공학부 - 소프트웨어</option>
+                                        <option >게임공학과</option>
+                                        <option >인공지능학과</option>
+                                        <option >기계공학과</option>
+                                        <option >기계설계공학부 - 기계설계전공</option>
+                                        <option >기계설계공학부 - 지능형모빌리티전공</option>
+                                        <option >메카트로닉스공학부 - 메카트로닉스공학 전공</option>
+                                        <option >메카트로닉스공학부 - AI로봇 전공</option>
+                                        <option >전자공학부 - 전자공학전공</option>
+                                        <option >전자공학부 - 임베디드시스템전공</option>
+                                        <option >신소재공학과</option>
+                                        <option >생명화학공학과</option>
+                                        <option >나노반도체공학과</option>
+                                        <option >에너지 전기공학과</option>
+                                        <option >경영학부 - 경영학전공</option>
+                                        <option >경영학부 - 데이터사이언스경영전공</option>
+                                        <option >경영학부 - IT경영전공</option>
+                                        <option >디자인공학부 - 산업디자인공학전공</option>
+                                        <option >디자인공학부 - 미디어디자인공학전공</option>
+                                        <option >산업융합공학과 디지털경영학과</option>
+                                    </select>
+                                </div>
+                          
+                            </div>
+                        </div>
+                        <div id="div-button">
+                            <button onclick="secondDone(event)" id="next"> 다음 </button>
+                        </div>
+                    </div>
+
+                    <div id="thrid" style="display: none;">
+                        <div id="stepbar">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="420" height="4" viewBox="0 0 420 4" fill="none">
+                                <rect x="20" width="380" height="4" rx="2" fill="#EAE9E9"/>
+                                <rect x="20" width="220" height="4" rx="2" fill="#7D67FF"/>
+                                </svg>
+                        </div>
+                        <div class="title">
+                            <p id="title-text">매칭 시 제외하고 싶은 <br>학과가 있으신가요?</p>
+                        </div>
+                        <div id="profile-dropdown-center">
+                            <div id="myprofileSetting">
+                                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="deletemajor">
+                                    <option selected>학과</option>
+                                    <option >컴퓨터 공학부 - 컴퓨터공학</option>
+                                    <option >컴퓨터 공학부 - 소프트웨어</option>
+                                    <option >게임공학과</option>
+                                    <option >인공지능학과</option>
+                                    <option >기계공학과</option>
+                                    <option >기계설계공학부 - 기계설계전공</option>
+                                    <option >기계설계공학부 - 지능형모빌리티전공</option>
+                                    <option >메카트로닉스공학부 - 메카트로닉스공학 전공</option>
+                                    <option >메카트로닉스공학부 - AI로봇 전공</option>
+                                    <option >전자공학부 - 전자공학전공</option>
+                                    <option >전자공학부 - 임베디드시스템전공</option>
+                                    <option >신소재공학과</option>
+                                    <option >생명화학공학과</option>
+                                    <option >나노반도체공학과</option>
+                                    <option >에너지 전기공학과</option>
+                                    <option >경영학부 - 경영학전공</option>
+                                    <option >경영학부 - 데이터사이언스경영전공</option>
+                                    <option >경영학부 - IT경영전공</option>
+                                    <option >디자인공학부 - 산업디자인공학전공</option>
+                                    <option >디자인공학부 - 미디어디자인공학전공</option>
+                                    <option >산업융합공학과 디지털경영학과</option>
+                                </select>
+                            </div>
+                          
+                        </div>
+                        
+                        <div id="div-button">
+                            <button onclick="thridDone(event)" id="next"> 다음 </button>
+                        </div>
+                    </div>
+                
+
+                <div id="four" style="display: none;">
+                    <div id="stepbar">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="420" height="4" viewBox="0 0 420 4" fill="none">
+                            <rect x="20" width="380" height="4" rx="2" fill="#EAE9E9"/>
+                            <rect x="20" width="316" height="4" rx="2" fill="#7D67FF"/>
+                            </svg>
+                    </div>
+                    <div class="title">
+                        <p id="title-text">매칭 시 선호하는 나이대가 있으신가요?</p>
+                    </div>
+                    <div id="profile-dropdown-center">
+                        <div id="myprofileSetting">
+                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="wishage">
+                                <option selected>나이</option>
+                                <option value="anything">상관없음</option>
+                                <option value="20-22">20세 - 22세</option>
+                                <option value="21-23">21세 - 23세</option>
+                                <option value="22-24">22세 - 24세</option>
+                                <option value="23-25">23세 - 25세</option>
+                                <option value="24-26">24세 - 26세</option>
+                                <option value="25-27">25세 - 27세</option>
+                                <option value="26-28">26세 - 28세</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div id="div-button">
+                        <button id="subbutton" type="submit">
+                            신청하기
+                        </button>
+                    </div>
+                </div>
+            </div>
+            </form>
+          </section>
+          <script src="js/profileSet.js">
+          </script>
+        </div>
+</body>
+</html>

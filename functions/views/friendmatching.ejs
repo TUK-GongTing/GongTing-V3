@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>공팅</title>
+    <link rel="stylesheet" href="css/MatchingSet.css">
+    <link rel="icon" href="pavicon/pavicon_png.png">
+</head>
+<body>
+    <div class="body">
+        <header>
+            <div id="back-icon">
+                <a href="">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none">
+                        <path d="M24.8414 12.8414L15.6827 22L24.8414 31.1587" stroke="#111111" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                </a>
+                <p>친구 매칭 신청</p>
+                <a id="x-botton" href="/">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none">
+                        <path d="M28.9956 15.0061L15.0073 28.9915M29 29L15 15" stroke="#111111" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                </a>
+            </div>
+        </header>
+          <section>
+            <form>
+
+                <div class="profile-dropdown">
+                    <div id="frist" >
+                        <div id="stepbar">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="420" height="4" viewBox="0 0 420 4" fill="none">
+                                <rect x="20" width="380" height="4" rx="2" fill="#EAE9E9"/>
+                                <rect x="20" width="47" height="4" rx="2" fill="#7D67FF"/>
+                                </svg>
+                        </div>
+                        <div class="title">
+                            <p id="title-text">매칭 시 어떤 성별을 원하시나요?</p>
+                        </div>
+                        <div id="profile-dropdown-center">
+                            <div id="myprofileSetting">
+                                <div class="sex-group">
+                                    <div class="sex-checkbox">
+                                        <input type="checkbox" id="sex1" name="wishgender" value="남자" onclick="threeCheckbox('sex1', 'sex2', 'sex3')" >
+                                        <label for="sex1">
+                                            <p class="sex-title">남성</p>
+                                        </label>
+                            
+                                        <input type="checkbox" id="sex2" name="wishgender" value="여자" onclick="threeCheckbox('sex1', 'sex2', 'sex3')" >
+                                        <label for="sex2">
+                                            <p class="sex-title">여성</p>
+                                        </label>
+                                    </div>
+                                    <div class="terms">
+                                        <input type="checkbox" id="sex3" name="wishgender" value="상관없음" onclick="threeCheckbox('sex1', 'sex2', 'sex3')"> 
+                                        <label for="sex3"><span>상관없음</span></label>
+                                    </div> 
+                                </div>
+                            </div>
+                            
+                            
+                        </div>
+                        
+                        <div id="div-button">
+                            <button onclick="fristDone(event)" id="next"> 다음 </button>
+                        </div>
+                    </div>
+
+                    <div id="second" style="display: none;">
+                        <div id="stepbar">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="420" height="4" viewBox="0 0 420 4" fill="none">
+                                <rect x="20" width="380" height="4" rx="2" fill="#EAE9E9"/>
+                                <rect x="20" width="47" height="4" rx="2" fill="#7D67FF"/>
+                                </svg>
+                        </div>
+                        <div class="title">
+                            <p id="title-text">매칭 시 선호하는 나이가 있으신가요?</p>
+                        </div>
+                        <div id="profile-dropdown-center">
+                            <div id="myprofileSetting">
+                                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="wishage">
+                                    <option selected>나이</option>
+                                    <option value="19">19</option>
+                                    <option value="20">20</option>
+                                    <option value="21">21</option>
+                                    <option value="22">22</option>
+                                    <option value="23">23</option>
+                                    <option value="24">24</option>
+                                    <option value="25">25</option>
+                                    <option value="26">26</option>
+                                    <option value="27">27</option>
+                                    <option value="28">28</option>
+                                    <option value="29">29</option>
+                                    <option value="30">30</option>
+                                    <option value="31">31</option>
+                                    <option value="32">32</option>
+                                    <option value="anything">상관없음</option>
+                                </select>
+                            </div>
+                          
+                        </div>
+                        
+                        <div id="div-button">
+                            <button onclick="secondDone(event)" id="next"> 다음 </button>
+                        </div>
+                    </div>
+
+                    <div id="thrid" style="display: none;">
+                        <div id="stepbar">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="420" height="4" viewBox="0 0 420 4" fill="none">
+                                <rect x="20" width="380" height="4" rx="2" fill="#EAE9E9"/>
+                                <rect x="20" width="47" height="4" rx="2" fill="#7D67FF"/>
+                                </svg>
+                        </div>
+                        <div class="title">
+                            <p id="title-text">선호하는 상대방의 <br>흡연 여부를 선택해주세요</p>
+                        </div>
+                        <div id="profile-dropdown-center">
+                            <div id="myprofileSetting">
+                                <div class="sex-group">
+                                    <div class="sex-checkbox">
+                                        <input type="checkbox" id="smoker" name="wishsmoke" value="흡연자" onclick="threeCheckbox('smoker', 'not-smoker', 'anything')" >
+                                        <label for="smoker">
+                                            <p class="sex-title">흡연자</p>
+                                        </label>
+                                        <input type="checkbox" id="not-smoker" name="wishsmoke" value="비흡연자" onclick="threeCheckbox('smoker', 'not-smoker', 'anything')" >
+                                        <label for="not-smoker">
+                                            <p class="sex-title">비흡연자</p>
+                                        </label>
+                                    </div>
+                                    <div class="terms">
+                                        <input type="checkbox" id="anything" name="wishsmoke" value="상관없음" onclick="threeCheckbox('smoker', 'not-smoker', 'anything')" > 
+                                        <label for="anything"><span>상관없음</span></label>
+                                    </div> 
+                                </div>
+                            </div>
+                            
+                            
+                        </div>
+                        
+                        <div id="div-button">
+                            <button onclick="thridDone(event)" id="next"> 다음 </button>
+                        </div>
+                    </div>
+                
+
+                <div id="four" style="display: none;">
+                    <div id="stepbar">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="420" height="4" viewBox="0 0 420 4" fill="none">
+                            <rect x="20" width="380" height="4" rx="2" fill="#EAE9E9"/>
+                            <rect x="20" width="137" height="4" rx="2" fill="#7D67FF"/>
+                            </svg>
+                    </div>
+                    <div class="title">
+                        <p id="title-text">선호하는 MBTI를 알려주세요.</p>
+                    </div>
+                    <div id="myprofileSetting">
+                        <div class="mbti-group">
+                            <div class="mbti-1">
+                                <input type="checkbox" id="mbti1" name="wishmbti" value="E" onclick="mbtiCheckbox('mbti1', 'mbti2')">
+                                <label for="mbti1">
+                                    <p class="mbti-title">E</p>
+                                    <p class="mbti-sub">외향형</p>
+                                </label>
+                    
+                                <input type="checkbox" id="mbti2" name="wishmbti" value="I" onclick="mbtiCheckbox('mbti1', 'mbti2')">
+                                <label for="mbti2">
+                                    <p class="mbti-title">I</p>
+                                    <p class="mbti-sub">내향형</p>
+                                </label>
+                            </div>
+                            <div class="mbti-2">
+                                <input type="checkbox" id="mbti3" name="wishmbti" value="S" onclick="mbtiCheckbox('mbti3', 'mbti4')">
+                                <label for="mbti3">
+                                    <p class="mbti-title">S</p>
+                                    <p class="mbti-sub">감각형</p>
+                                </label>
+                                <input type="checkbox" id="mbti4" name="wishmbti" value="N" onclick="mbtiCheckbox('mbti3', 'mbti4')">
+                                <label for="mbti4">
+                                    <p class="mbti-title">N</p>
+                                    <p class="mbti-sub">직관형</p>
+                                </label>
+                            </div>
+                            <div class="mbti-3">
+                                <input type="checkbox" id="mbti5" name="wishmbti" value="T" onclick="mbtiCheckbox('mbti5', 'mbti6')">
+                                <label for="mbti5">
+                                    <p class="mbti-title">T</p>
+                                    <p class="mbti-sub">사고형</p>
+                                </label>
+
+                                <input type="checkbox" id="mbti6" name="wishmbti" value="F" onclick="mbtiCheckbox('mbti5', 'mbti6')">
+                                <label for="mbti6">
+                                    <p class="mbti-title">F</p>
+                                    <p class="mbti-sub">감정형</p>
+                                </label>
+                            </div>
+                            <div class="mbti-4">
+                                <input type="checkbox" id="mbti7" name="wishmbti" value="J" onclick="mbtiCheckbox('mbti7', 'mbti8')">
+                                <label for="mbti7">
+                                    <p class="mbti-title">J</p>
+                                    <p class="mbti-sub">판단형</p>
+                                </label>
+                            
+                                <input type="checkbox" id="mbti8" name="wishmbti" value="P" onclick="mbtiCheckbox('mbti7', 'mbti8')">
+                                <label for="mbti8">
+                                    <p class="mbti-title">P</p>
+                                    <p class="mbti-sub">인식형</p>
+                                </label>
+                            </div> 
+                        </div>
+                            
+                    </div>
+                    <div id="div-button">
+                        <button onclick="fourDone(event)" id="next"> 다음 </button>
+                    </div>
+                </div>
+
+
+                <div id="five" style="display: none;">
+                    <div id="stepbar">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="420" height="4" viewBox="0 0 420 4" fill="none">
+                            <rect x="20" width="380" height="4" rx="2" fill="#EAE9E9"/>
+                            <rect x="20" width="235" height="4" rx="2" fill="#7D67FF"/>
+                            </svg>
+                    </div>
+                    <div class="title">
+                        <p id="title-text">선호하는 상대방의 <br>취미를 선택해주세요</p>
+                    </div>
+                    <div id="myprofileSetting">
+                        <div class="hobbyContainer">
+                            <div>
+                                <label>
+                                    <input type="checkbox" name="wishhobby" onclick ="hobbyChecked(this)"  value="영화">
+                                    <span>영화</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="wishhobby" onclick ="hobbyChecked(this)"  value="애니">
+                                    <span>애니</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="wishhobby" onclick ="hobbyChecked(this)"  value="술">
+                                    <span>술</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="wishhobby" onclick ="hobbyChecked(this)"  value="레저">
+                                    <span>레저</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="wishhobby" onclick ="hobbyChecked(this)"  value="사진 찍기">
+                                    <span>사진 찍기</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="wishhobby" onclick ="hobbyChecked(this)"  value="공연 관람">
+                                    <span>공연 관람</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="wishhobby" onclick ="hobbyChecked(this)"  value="전시회 관람">
+                                    <span>전시회 관람</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="wishhobby" onclick ="hobbyChecked(this)"  value="스포츠/운동">
+                                    <span>스포츠/운동</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="wishhobby" onclick ="hobbyChecked(this)"  value="쇼핑">
+                                    <span>쇼핑</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="wishhobby" onclick ="hobbyChecked(this)"  value="여행">
+                                    <span>여행</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="wishhobby" onclick ="hobbyChecked(this)"  value="덕질">
+                                    <span>덕질</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="wishhobby" onclick ="hobbyChecked(this)"  value="자전거">
+                                    <span>자전거</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="wishhobby" onclick ="hobbyChecked(this)"  value="캠핑">
+                                    <span>캠핑</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="wishhobby" onclick ="hobbyChecked(this)"  value="패션">
+                                    <span>패션</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="wishhobby" onclick ="hobbyChecked(this)"  value="카페 가기">
+                                    <span>카페 가기</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="wishhobby" onclick ="hobbyChecked(this)"  value="클라이밍">
+                                    <span>클라이밍</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="wishhobby" onclick ="hobbyChecked(this)"  value="인테리어">
+                                    <span>인테리어</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="wishhobby" onclick ="hobbyChecked(this)"  value="넷플릭스">
+                                    <span>넷플릭스</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="wishhobby" onclick ="hobbyChecked(this)"  value="봉사활동">
+                                    <span>봉사활동</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="wishhobby" onclick ="hobbyChecked(this)"  value="요리">
+                                    <span>요리</span>
+                                </label>               
+                                <label>
+                                    <input type="checkbox" name="wishhobby" onclick ="hobbyChecked(this)"  value="산책">
+                                    <span>산책</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="wishhobby" onclick ="hobbyChecked(this)"  value="맛집 투어">
+                                    <span>맛집 투어</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="wishhobby" onclick ="hobbyChecked(this)"  value="글쓰기">
+                                    <span>글쓰기</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="wishhobby" onclick ="hobbyChecked(this)"  value="외국어/어학">
+                                    <span>외국어/어학</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="wishhobby" onclick ="hobbyChecked(this)"  value="드라마">
+                                    <span>드라마</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="wishhobby" onclick ="hobbyChecked(this)"  value="재테크">
+                                    <span>재테크</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="wishhobby" onclick ="hobbyChecked(this)"  value="드라이브">
+                                    <span>드라이브</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="wishhobby" onclick ="hobbyChecked(this)"  value="자기계발">
+                                    <span>자기계발</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="wishhobby" onclick ="hobbyChecked(this)"  value="피트니스">
+                                    <span>피트니스</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="wishhobby" onclick ="hobbyChecked(this)"  value="노래부르기">
+                                    <span>노래부르기</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="wishhobby" onclick ="hobbyChecked(this)"  value="미용">
+                                    <span>미용</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="wishhobby" onclick ="hobbyChecked(this)"  value="게임">
+                                    <span>게임</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="wishhobby" onclick ="hobbyChecked(this)"  value="독서">
+                                    <span>독서</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="wishhobby" onclick ="hobbyChecked(this)"  value="문학">
+                                    <span>문학</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="wishhobby" onclick ="hobbyChecked(this)"  value="그림 그리기">
+                                    <span>그림 그리기</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="wishhobby" onclick ="hobbyChecked(this)"  value="반려 동물">
+                                    <span>반려 동물</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="wishhobby" onclick ="hobbyChecked(this)"  value="음악 듣기">
+                                    <span>음악 듣기</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="wishhobby" onclick ="hobbyChecked(this)"  value="댄스">
+                                    <span>댄스</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="wishhobby" onclick ="hobbyChecked(this)"  value="정치">
+                                    <span>정치</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="wishhobby" onclick ="hobbyChecked(this)"  value="IT">
+                                    <span>IT</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="wishhobby" onclick ="hobbyChecked(this)"  value="웹툰">
+                                    <span>웹툰</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="wishhobby" onclick ="hobbyChecked(this)"  value="베이킹">
+                                    <span>베이킹</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="wishhobby" onclick ="hobbyChecked(this)"  value="공부">
+                                    <span>공부</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="wishhobby" onclick ="hobbyChecked(this)"  value="등산">
+                                    <span>등산</span>
+                                </label>     
+                            </div>
+                        </div>
+                    </div>
+                    <div id="div-button">
+                        <button onclick="fiveDone(event)" id="next"> 다음 </button>
+                    </div>
+                </div>
+
+
+                <div id="sixth" style="display: none;">
+                    <div id="stepbar">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="420" height="4" viewBox="0 0 420 4" fill="none">
+                            <rect x="20" width="380" height="4" rx="2" fill="#EAE9E9"/>
+                            <rect x="20" width="317" height="4" rx="2" fill="#7D67FF"/>
+                            </svg>
+                    </div>
+                    <div class="title">
+                        <p id="title-text">선호하는 상대방의 <br>특성을 선택해주세요</p>
+                    </div>
+                    <div id="myprofileSetting">
+                        <div class="traitContainer">
+                            <div>
+                                <label>
+                                    <input type="checkbox" name="wishfeatures" onclick ="traitChecked(this)"  value="이야기를 잘 들어주는">
+                                    <span>이야기를 잘 들어주는</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="wishfeatures" onclick ="traitChecked(this)"  value="대화를 잘 하는">
+                                    <span>대화를 잘 하는</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="wishfeatures" onclick ="traitChecked(this)"  value="재주가 많은">
+                                    <span>재주가 많은</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="wishfeatures" onclick ="traitChecked(this)"  value="웃는게 예쁜">
+                                    <span>웃는게 예쁜</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="wishfeatures" onclick ="traitChecked(this)"  value="목소리가 좋은">
+                                    <span>목소리가 좋은</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="wishfeatures" onclick ="traitChecked(this)"  value="자신만의 취미를 가진">
+                                    <span>자신만의 취미를 가진</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="wishfeatures" onclick ="traitChecked(this)"  value="허세 없는">
+                                    <span>허세 없는</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="wishfeatures" onclick ="traitChecked(this)"  value="노래를 잘 하는">
+                                    <span>노래를 잘 하는</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="wishfeatures" onclick ="traitChecked(this)"  value="털털한">
+                                    <span>털털한</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="wishfeatures" onclick ="traitChecked(this)"  value="성실한">
+                                    <span>성실한</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="wishfeatures" onclick ="traitChecked(this)"  value="조용한">
+                                    <span>조용한</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="wishfeatures" onclick ="traitChecked(this)"  value="세련된">
+                                    <span>세련된</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="wishfeatures" onclick ="traitChecked(this)"  value="워커홀릭">
+                                    <span>워커홀릭</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="wishfeatures" onclick ="traitChecked(this)"  value="욕 안 하는">
+                                    <span>욕 안 하는</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="wishfeatures" onclick ="traitChecked(this)"  value="게임을 잘 하는">
+                                    <span>게임을 잘 하는</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="wishfeatures" onclick ="traitChecked(this)"  value="장난기가 많은">
+                                    <span>장난기가 많은</span>
+                                </label>                                
+                                <label>
+                                    <input type="checkbox" name="wishfeatures" onclick ="traitChecked(this)"  value="자신감이 넘치는">
+                                    <span>자신감이 넘치는</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="wishfeatures" onclick ="traitChecked(this)"  value="야망이 있는">
+                                    <span>야망이 있는</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="wishfeatures" onclick ="traitChecked(this)"  value="짙은 눈썹">
+                                    <span>짙은 눈썹</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="wishfeatures" onclick ="traitChecked(this)"  value="창의적인">
+                                    <span>창의적인</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="wishfeatures" onclick ="traitChecked(this)"  value="패션 센스가 좋은">
+                                    <span>패션 센스가 좋은</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="wishfeatures" onclick ="traitChecked(this)"  value="보조개">
+                                    <span>보조개</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="wishfeatures" onclick ="traitChecked(this)"  value="웃음이 많은">
+                                    <span>웃음이 많은</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="wishfeatures" onclick ="traitChecked(this)"  value="우아한">
+                                    <span>우아한</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="wishfeatures" onclick ="traitChecked(this)"  value="표현을 잘 하는">
+                                    <span>표현을 잘 하는</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="wishfeatures" onclick ="traitChecked(this)"  value="배려심이 깊은">
+                                    <span>배려심이 깊은</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="wishfeatures" onclick ="traitChecked(this)"  value="혼자 잘 노는">
+                                    <span>혼자 잘 노는</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="wishfeatures" onclick ="traitChecked(this)"  value="유머 감각이 있는">
+                                    <span>유머 감각이 있는</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="wishfeatures" onclick ="traitChecked(this)"  value="쌍커풀 없는 눈">
+                                    <span>쌍커풀 없는 눈</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="wishfeatures" onclick ="traitChecked(this)"  value="목표 지향적인">
+                                    <span>목표 지향적인</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="wishfeatures" onclick ="traitChecked(this)"  value="체력이 좋은">
+                                    <span>체력이 좋은</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="wishfeatures" onclick ="traitChecked(this)"  value="예의가 바른">
+                                    <span>예의가 바른</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="wishfeatures" onclick ="traitChecked(this)"  value="솔직한">
+                                    <span>솔직한</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="wishfeatures" onclick ="traitChecked(this)"  value="비율이 좋은">
+                                    <span>비율이 좋은</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="wishfeatures" onclick ="traitChecked(this)"  value="호기심이 많은">
+                                    <span>호기심이 많은</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="wishfeatures" onclick ="traitChecked(this)"  value="동안">
+                                    <span>동안</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="wishfeatures" onclick ="traitChecked(this)"  value="섹시한 두뇌">
+                                    <span>섹시한 두뇌</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="wishfeatures" onclick ="traitChecked(this)"  value="시사에 밝은">
+                                    <span>시사에 밝은</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="wishfeatures" onclick ="traitChecked(this)" value="요리를 잘 하는">
+                                    <span>요리를 잘 하는</span>
+                                </label>              
+                            </div>
+                        </div>
+                    </div>
+                    <div id="div-button">
+                        <button id="subbutton" type="submit">
+                            신청하기
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            </form>
+          </section>
+          <script src="js/profileSet.js">
+          </script>
+        </div>
+</body>
+</html>
