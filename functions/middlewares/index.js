@@ -27,9 +27,14 @@ exports.isSetpf = async(req,res,next) => { // 프로필 설정 여부 확인
 exports.isverify = async(req,res,next) => {
     const uid = req.cookies.uid || "";
     const {verify,kverify} = (await db.collection('users').doc(uid).get()).data()
-    if(verify==="인증" && kverify === "인증"){
+    if(verify==="인증완료" && kverify==="인증완료"){
         next()
     }else{
         return res.redirect("/gongting-v3/us-central1/api/verifypage")
     }
+}
+
+exports.isadmin = async (req,res,next) => {
+    if(req.cookies.uid===process.env.ISADMIN) next()
+    else return res.redirect('/404/error');
 }

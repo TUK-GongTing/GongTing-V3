@@ -47,7 +47,7 @@
               <div class="matchingProfile-top">
                 <p id="profileBottomTitle">인증 상태창</p>
                 <table>
-                  <%if(verify =='인증'){%>
+                  <%if(verify =='인증완료'){%>
                     <tr>학생증 인증 성공!<br></tr>
                   <%}else if(verify =='확인중'){%>
                     <tr>학생증 인증 인증중!<br></tr>
@@ -56,7 +56,7 @@
                   <%}else if(verify =='미인증'){%>
                     <tr>학생증 미인증<br></tr>
                   <%}%>
-                  <%if(kverify =='인증'){%>
+                  <%if(kverify =='인증완료'){%>
                     <tr>카카오채널 인증 성공!</tr>
                   <%}else if(kverify =='확인중'){%>
                     <tr>카카오채널 인증 인증중!</tr>

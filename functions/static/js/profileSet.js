@@ -65,6 +65,13 @@ function fristDone(event) {
                     secondDiv.style.display = 'none';
                     thridDiv.style.display = 'block';
                 }
+                function myfristDone(event) {
+                  event.preventDefault();
+                  let fristDiv = document.getElementById('frist');
+                  let secondDiv = document.getElementById('second');
+                  fristDiv.style.display = 'none';
+                  secondDiv.style.display = 'block';
+               }
                 function wishcount2Done(event) {
                   event.preventDefault();
                   let secondDiv = document.getElementById('wishcount2');
@@ -85,6 +92,13 @@ function fristDone(event) {
                   let thridDiv = document.getElementById('thrid');
                   secondDiv.style.display = 'none';
                   thridDiv.style.display = 'block';
+                }
+                function mythridDone(event) {
+                  event.preventDefault();
+                  let thridDiv = document.getElementById('thrid');
+                  let fourDiv = document.getElementById('four');
+                  thridDiv.style.display = 'none';
+                  fourDiv.style.display = 'block';
                 }
                 function thridDone(event) {
                     event.preventDefault();
