@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>공팅</title>
+    <link rel="stylesheet" href="css/verify.css">
+    <link rel="icon" href="pavicon/pavicon_png.png">
+</head>
+<body>
+    <div class="body">
+        <header>
+            <div id="back-icon">
+                <a href="/">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none">
+                        <path d="M24.8414 12.8414L15.6827 22L24.8414 31.1587" stroke="#111111" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>                
+                </a>
+            </div>
+        </header>
+          <%if(verify=='인증'){%>
+            <section>
+              <input type="hidden" id="uid" value="<%=uid%>">
+              <p id="main-text">학생 인증</p>
+              <p id="sub-text">인증완료됨</p>
+            </section>
+            <button id="subbutton" type="submit"> 
+              제출하기
+            </button>
+          <%}else if(verify=='확인중'){%>
+            <section>
+              <input type="hidden" id="uid" value="<%=uid%>">
+              <p id="main-text">학생 인증</p>
+              <p id="sub-text">확인중</p>
+            </section>
+            <button id="subbutton" type="submit"> 
+              제출하기
+            </button>
+          <%}else if(verify=='반려됨'){%>
+            <section>
+              <input type="hidden" id="uid" value="<%=uid%>">
+              <p id="main-text">학생 인증</p>
+              <p id="sub-text">반려됨</p>
+              <p id="sub-text"><%=verifymessage%></p>
+            </section>
+            <button id="subbutton" type="submit"> 
+              제출하기
+            </button>
+          <%}else{%>
+            <section>
+              <input type="hidden" id="uid" value="<%=uid%>">
+              <p id="main-text">학생 인증</p>
+              <p id="sub-text">학생증을 업로드 해주세요</p>
+  
+              <div id="photoPreview">
+                  <img id="preview">
+              </div>
+              <!-- 여기에 인풋으로 파일 업로드 버튼 만들어야함 -->
+              <form>
+                  <div id="upload">
+                      <input type="text" id="fileName" placeholder="파일명" readonly>
+                      <input type="file" id="fileInput" accept="image/*" name="card" onchange="readURL(this);">
+                      <label for="fileInput">파일 선택</label>
+                      <img id="preview">
+                  </div>
+                  <div id="verifyExplain">
+                      <li>학생증은 카메라로 찍어서 jpg / png로 올려주시면 됩니다.</li>
+                      <li>관리자가 확인 후 인증이 완료됩니다.</li>
+                      <li>학생증 증명을 안 할시 해당 웹 사이트를 사용 할 수 없습니다.</li>
+                      <li>학생증 증명에 실패하면 해당 아이디가 잠길 수 있습니다.</li>
+                      <li>타인의 학생증을 도용할 시 법적인 책임을 질 수 있습니다.</li>
+                      
+                  </div>
+                  <div id="div-button">
+                      <button id="subbutton" type="submit"> 
+                        제출하기
+                      </button>
+                  </div>
+              </form>
+            </section>
+          <%}%>
+      </div>
+      <script>
+        const fileInput = document.getElementById('fileInput');
+        const fileNameInput = document.getElementById('fileName');
+
+          function readURL(input) {
+            if (input.files && input.files[0]) {
+              var reader = new FileReader();
+              reader.onload = function (e) {
+                var preview = document.getElementById('preview');
+                preview.src = e.target.result;
+        
+                // 이미지 로드 후 크기 조절
+                preview.onload = function () {
+                  var maxWidth = document.getElementById('photoPreview').clientWidth;
+                  var maxHeight = document.getElementById('photoPreview').clientHeight;
+        
+                  if (preview.width > maxWidth) {
+                    preview.width = maxWidth;
+                  }
+                  if (preview.height > maxHeight) {
+                    preview.height = maxHeight;
+                  }
+                };
+              };
+              reader.readAsDataURL(input.files[0]);
+            } else {
+              document.getElementById('preview').src = '';
+            }
+          }
+
+          fileInput.addEventListener('change', (event) => {
+            const selectedFile = event.target.files[0];
+
+            if (selectedFile) {
+              fileName.value = selectedFile.name;
+            } else {
+              fileName.value = '';
+            }
+          });
+      </script>      
+      <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js";
+        import { getStorage, ref,uploadBytes,getDownloadURL} from "https://www.gstatic.com/firebasejs/10.5.0/firebase-storage.js";
+        import { getFirestore, doc, updateDoc } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBo8-eP4t5a4-SKR_Fg0RssfPQOk4ZuFoM",
+            authDomain: "gongting-v3.firebaseapp.com",
+            projectId: "gongting-v3",
+            storageBucket: "gongting-v3.appspot.com",
+            messagingSenderId: "838904927717",
+            appId: "1:838904927717:web:d2c575f560e03ba07bcb0c",
+            measurementId: "G-K24LB46CPW"
+          };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const storage = getStorage(app);
+        const db = getFirestore(app);
+        const uid = document.getElementById("uid").value;
+        try{
+          document.getElementById("subbutton").addEventListener('click',async(e)=>{
+            e.preventDefault()
+            const file = document.querySelector("#fileInput").files[0];
+            const storageRef = ref(storage, 'studentnum/'+Date.now()+file.name);
+            const metadata = {
+              contentType: 'image/jpeg',
+            };
+            const uploadTask = await uploadBytes(storageRef, file, metadata);
+            const getURL = await getDownloadURL(storageRef);
+            alert('진행 중입니다. 확인 버튼을 누르신 후 잠시동안 기다려주세요.')
+            await updateDoc(doc(db, "users", uid), {
+              verify:'확인중',
+              verifyurl:getURL,
+            });
+            window.location.href='/gongting-v3/us-central1/api/verifypage'
+          })
+        }catch(error){
+          alert(error)
+          window.location.href='/gongting-v3/us-central1/api/'
+        }
+
+      </script>
+</body>
+</html>
