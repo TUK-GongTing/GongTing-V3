@@ -27,11 +27,11 @@ exports.groupmatchingset = async (req,res) =>{
     const uid = req.cookies.uid;
     const { wishcount,height1,age1,appearance1,smoke1,major1,grade1,height2,age2,appearance2,smoke2,major2,grade2,height3,age3,appearance3,smoke3,major3,grade3,
     wishage,wishmood,wishgame,wishsay } = req.body;
-    const {height,age,appearance,major,grade,kakaoid,gender} = (await db.collection('userprofile').doc(uid).get()).data();
+    const {height,age,appearance,major,grade,kakaoid,gender,smoke} = (await db.collection('userprofile').doc(uid).get()).data();
     const date = new Date(Date.now());
     if(wishcount == '2'){
         await db.collection('matching_submit').doc(uid).set({
-            wishcount,height,age,appearance,major,grade,kakaoid,
+            wishcount,height,age,appearance,major,grade,smoke,kakaoid,
             height1:height1[0],
             age1:age1[0],
             appearance1:appearance1[0],
@@ -41,7 +41,7 @@ exports.groupmatchingset = async (req,res) =>{
             wishage,wishmood,wishgame,wishsay,date,
         });
         await db.collection('algorithm').doc(wishcount).collection(gender).doc(uid).set({
-            wishcount,height,age,appearance,major,grade,kakaoid,
+            wishcount,height,age,appearance,major,grade,smoke,kakaoid,
             height1:height1[0],
             age1:age1[0],
             appearance1:appearance1[0],
@@ -53,7 +53,7 @@ exports.groupmatchingset = async (req,res) =>{
     }
     else if(wishcount == '3'){
         await db.collection('matching_submit').doc(uid).set({
-            wishcount,height,age,appearance,major,grade,kakaoid,
+            wishcount,height,age,appearance,major,grade,smoke,kakaoid,
             height1:height1[1],
             age1:age1[1],
             appearance1:appearance1[1],
@@ -69,7 +69,7 @@ exports.groupmatchingset = async (req,res) =>{
             wishage,wishmood,wishgame,wishsay,date,
         });
         await db.collection('algorithm').doc(wishcount).collection(gender).doc(uid).set({
-            wishcount,height,age,appearance,major,grade,kakaoid,
+            wishcount,height,age,appearance,major,grade,smoke,kakaoid,
             height1:height1[1],
             age1:age1[1],
             appearance1:appearance1[1],
@@ -87,7 +87,7 @@ exports.groupmatchingset = async (req,res) =>{
     }
     else{
         await db.collection('matching_submit').doc(uid).set({
-            wishcount,height,age,appearance,major,grade,kakaoid,
+            wishcount,height,age,appearance,major,grade,smoke,kakaoid,
             height1:height1[2],
             age1:age1[2],
             appearance1:appearance1[2],
@@ -109,7 +109,7 @@ exports.groupmatchingset = async (req,res) =>{
             wishage,wishmood,wishgame,wishsay,date,
         });
         await db.collection('algorithm').doc(wishcount).collection(gender).doc(uid).set({
-            wishcount,height,age,appearance,major,grade,kakaoid,
+            wishcount,height,age,appearance,major,grade,smoke,kakaoid,
             height1:height1[2],
             age1:age1[2],
             appearance1:appearance1[2],

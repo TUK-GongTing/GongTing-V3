@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="pavicon/pavicon_png.png">
+    <title>어드민</title>
+</head>
+<body>
+    <form action="/gongting-v3/us-central1/api/admin/matching" method="post">
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+        <input type="text" name="manUid">
+        <input type="text" name="womanUid">
+        <button type="submit">확인</button>
+    </form>
+</body>
+</html>
