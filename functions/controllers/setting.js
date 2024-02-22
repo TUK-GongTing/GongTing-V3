@@ -21,10 +21,13 @@ exports.myprofileset = async (req,res) =>{
 
 exports.groupmatchingset = async (req,res) =>{
     const uid = req.cookies.uid;
+    // form 데이터들 // 
     const { wishcount,height1,age1,personality1,appearance1,smoke1,major1,grade1,height2,age2,personality2,appearance2,smoke2,major2,grade2,height3,age3,personality3,appearance3,smoke3,major3,grade3,
     wishage,wishmood,wishgame,wishsay } = req.body;
-    const {height,age,appearance,kakaoid,gender,smoke} = (await db.collection('userprofile').doc(uid).get()).data();
+    // 내 정보 가져오기 //
+    const {height,age,appearance,kakaoid,gender,smoke} = (await db.collection('userprofile').doc(uid).get()).data(); 
     const {major,grade} = (await db.collection('users').doc(uid).get()).data();
+    // 시간 //
     const date = new Date(Date.now());
     if(wishcount == '2'){
         await db.collection('matching_submit').doc(uid).set({
@@ -143,3 +146,15 @@ exports.groupmatchingset = async (req,res) =>{
     return res.redirect("/gongting-v3/us-central1/api/")
 }
 
+exports.allow = async(req,res) => {
+    (await db.collection('matching_result').doc(req.cookies.uid).update({
+        status:"수락",
+    }))
+    return res.redirect('/gongting-v3/us-central1/api/matchingresult')
+}
+exports.reject = async(req,res) => {
+    (await db.collection('matching_result').doc(req.cookies.uid).update({
+        status:"거절",
+    }))
+    return res.redirect('/gongting-v3/us-central1/api/matchingresult')
+}

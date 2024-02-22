@@ -9,9 +9,13 @@ exports.algorithm = async(req,res) => {
     const womanData = (await db.collection('matching_submit').doc(womanUid).get()).data()
     await db.collection("matching_result").doc(manUid).set({
         data:womanData,
+        status:"매칭중",
+        otherUid:womanUid,
     });
     await db.collection("matching_result").doc(womanUid).set({
         data:manData,
+        status:"매칭중",
+        otherUid:manUid,
     });
     return res.redirect('/gongting-v3/us-central1/api/')
 }

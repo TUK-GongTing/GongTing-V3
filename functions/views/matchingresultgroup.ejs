@@ -43,7 +43,7 @@
             </div>
         </header>
         <section>
-          <%if(result3data){%>
+          <%if(resultdata.data.wishcount=='2'){%>
             <div class="matchingProfile">
                 <div class="matchingProfile-bottom">
                     <div class="base-info">
@@ -51,107 +51,216 @@
                         <table>
                           <tr>
                             <td>술게임 여부</td>
-                            <td><%=result3data.wishgame%></td>
+                            <td><%=resultdata.data.wishgame%></td>
                           </tr>
                           <tr>
                             <td>술자리 분위기</td>
-                            <td><%=result3data.wishmood%></td>
+                            <td><%=resultdata.data.wishmood%></td>
                           </tr>
                           <tr>
                             <td>한마디</td>
-                            <td><%=result3data.wishsay%></td>
+                            <td><%=resultdata.data.wishsay%></td>
                           </tr>
                         </table>
                         <div id="participant">참여자1</div>
                         <table>
                           <tr>
                             <td>학년</td>
-                            <td><%=result3data.grade%></td>
+                            <td><%=resultdata.data.grade%></td>
                           </tr>
                           <tr>
                             <td>키</td>
-                            <td><%=result3data.height%></td>
+                            <td><%=resultdata.data.height%></td>
                           </tr>
                           <tr>
                             <td>나이</td>
-                            <td><%=result3data.age%></td>
+                            <td><%=resultdata.data.age%></td>
                           </tr>
                           <tr>
                             <td>학과</td>
-                            <td><%=result3data.major%></td>
+                            <td><%=resultdata.data.major%></td>
                           </tr>
                           <tr>
                             <td>흡연여부</td>
-                            <td><%=result3data.smoke%></td>
+                            <td><%=resultdata.data.smoke%></td>
                           </tr>
                           <tr>
                             <td>외모</td>
-                            <td><%=result3data.appearance%></td>
+                            <td><%=resultdata.data.appearance%></td>
                           </tr>
                         </table>
                         <div id="participant">참여자2</div>
                         <table>
                           <tr>
                             <td>학년</td>
-                            <td><%=result3data.grade1%></td>
+                            <td><%=resultdata.data.grade1%></td>
                           </tr>
                           <tr>
                             <td>키</td>
-                            <td><%=result3data.height1%></td>
+                            <td><%=resultdata.data.height1%></td>
                           </tr>
                           <tr>
                             <td>나이</td>
-                            <td><%=result3data.age1%></td>
+                            <td><%=resultdata.data.age1%></td>
                           </tr>
                           <tr>
                             <td>학과</td>
-                            <td><%=result3data.major1%></td>
+                            <td><%=resultdata.data.major1%></td>
                           </tr>
                           <tr>
                             <td>흡연여부</td>
-                            <td><%=result3data.smoke1%></td>
+                            <td><%=resultdata.data.smoke1%></td>
                           </tr>
                           <tr>
                             <td>외모</td>
-                            <td><%=result3data.appearance1%></td>
+                            <td><%=resultdata.data.appearance1%></td>
+                          </tr>
+                          <!-- 매칭 성공 ? 실패 ?  -->
+                          <%if(matchingResult == '성공'){%>
+                          <tr>
+                            <td>카카오톡 ID</td>
+                            <td><%=resultdata.data.kakaoid%></td>
+                          </tr>
+                          <%}else if(matchingResult == '실패'){%>
+                          <tr>
+                            <td>수락 여부</td>
+                            <td>아쉽게도 매칭에 실패하셨습니다.</td>
+                          </tr>
+                          <%}%>
+                          <!-- 수락 여부 누르면 끝 -->
+                          <%if(resultdata.status=='매칭중'){%>
+                            <tr>
+                              <td>수락 여부</td>
+                              <td><a href="/gongting-v3/us-central1/api/setting/allow">예</a>&nbsp;&nbsp;&nbsp;<a href="/gongting-v3/us-central1/api/setting/reject">아니요</a></td>
+                            </tr>
+                          <%}%>
+                        </table>
+                    </div>
+                </div>
+            </div>
+          <%}else if(resultdata.data.wishcount=='3'){%>
+            <div class="matchingProfile">
+                <div class="matchingProfile-bottom">
+                    <div class="base-info">
+                        <p id="profileBottomTitle">기본정보</p>
+                        <table>
+                          <tr>
+                            <td>술게임 여부</td>
+                            <td><%=resultdata.data.wishgame%></td>
+                          </tr>
+                          <tr>
+                            <td>술자리 분위기</td>
+                            <td><%=resultdata.data.wishmood%></td>
+                          </tr>
+                          <tr>
+                            <td>한마디</td>
+                            <td><%=resultdata.data.wishsay%></td>
+                          </tr>
+                        </table>
+                        <div id="participant">참여자1</div>
+                        <table>
+                          <tr>
+                            <td>학년</td>
+                            <td><%=resultdata.data.grade%></td>
+                          </tr>
+                          <tr>
+                            <td>키</td>
+                            <td><%=resultdata.data.height%></td>
+                          </tr>
+                          <tr>
+                            <td>나이</td>
+                            <td><%=resultdata.data.age%></td>
+                          </tr>
+                          <tr>
+                            <td>학과</td>
+                            <td><%=resultdata.data.major%></td>
+                          </tr>
+                          <tr>
+                            <td>흡연여부</td>
+                            <td><%=resultdata.data.smoke%></td>
+                          </tr>
+                          <tr>
+                            <td>외모</td>
+                            <td><%=resultdata.data.appearance%></td>
+                          </tr>
+                        </table>
+                        <div id="participant">참여자2</div>
+                        <table>
+                          <tr>
+                            <td>학년</td>
+                            <td><%=resultdata.data.grade1%></td>
+                          </tr>
+                          <tr>
+                            <td>키</td>
+                            <td><%=resultdata.data.height1%></td>
+                          </tr>
+                          <tr>
+                            <td>나이</td>
+                            <td><%=resultdata.data.age1%></td>
+                          </tr>
+                          <tr>
+                            <td>학과</td>
+                            <td><%=resultdata.data.major1%></td>
+                          </tr>
+                          <tr>
+                            <td>흡연여부</td>
+                            <td><%=resultdata.data.smoke1%></td>
+                          </tr>
+                          <tr>
+                            <td>외모</td>
+                            <td><%=resultdata.data.appearance1%></td>
                           </tr>
                         </table>
                         <div id="participant">참여자3</div>
                         <table>
                           <tr>
                             <td>학년</td>
-                            <td><%=result3data.grade2%></td>
+                            <td><%=resultdata.data.grade2%></td>
                           </tr>
                           <tr>
                             <td>키</td>
-                            <td><%=result3data.height2%></td>
+                            <td><%=resultdata.data.height2%></td>
                           </tr>
                           <tr>
                             <td>나이</td>
-                            <td><%=result3data.age2%></td>
+                            <td><%=resultdata.data.age2%></td>
                           </tr>
                           <tr>
                             <td>학과</td>
-                            <td><%=result3data.major2%></td>
+                            <td><%=resultdata.data.major2%></td>
                           </tr>
                           <tr>
                             <td>흡연여부</td>
-                            <td><%=result3data.smoke2%></td>
+                            <td><%=resultdata.data.smoke2%></td>
                           </tr>
                           <tr>
                             <td>외모</td>
-                            <td><%=result3data.appearance2%></td>
+                            <td><%=resultdata.data.appearance2%></td>
                           </tr>
+                          <%if(matchingResult == '성공'){%>
+                          <tr>
+                            <td>카카오톡 ID</td>
+                            <td><%=resultdata.data.kakaoid%></td>
+                          </tr>
+                          <%}else if(matchingResult == '실패'){%>
                           <tr>
                             <td>수락 여부</td>
-                            <td><a href="/gongting-v3/us-central1/api/matching//yes">예</a>&nbsp;&nbsp;&nbsp;<a href="/gongting-v3/us-central1/api/matching//no">아니요</a></td>
+                            <td>아쉽게도 매칭에 실패하셨습니다.</td>
                           </tr>
+                          <%}%>
+                          <!-- 수락 여부 누르면 끝 -->
+                          <%if(resultdata.status=='매칭중'){%>
+                            <tr>
+                              <td>수락 여부</td>
+                              <td><a href="/gongting-v3/us-central1/api/setting/allow">예</a>&nbsp;&nbsp;&nbsp;<a href="/gongting-v3/us-central1/api/setting/reject">아니요</a></td>
+                            </tr>
+                          <%}%>
                         </table>
                       </table>
                     </div>
                 </div>
             </div>
-            <%}else if(result4data){%>
+            <%}else if(resultdata.data.wishcount=='4'){%>
               <div class="matchingProfile">
                   <div class="matchingProfile-bottom">
                       <div class="base-info">
@@ -159,128 +268,144 @@
                           <table>
                             <tr>
                               <td>술게임 여부</td>
-                              <td><%=result4data.wishgame%></td>
+                              <td><%=resultdata.data.wishgame%></td>
                             </tr>
                             <tr>
                               <td>술자리 분위기</td>
-                              <td><%=result4data.wishmood%></td>
+                              <td><%=resultdata.data.wishmood%></td>
                             </tr>
                             <tr>
                               <td>한마디</td>
-                              <td><%=result4data.wishsay%></td>
+                              <td><%=resultdata.data.wishsay%></td>
                             </tr>
                           </table>
                           <div id="participant">참여자1</div>
                           <table>
                             <tr>
                               <td>학년</td>
-                              <td><%=result4data.grade%></td>
+                              <td><%=resultdata.data.grade%></td>
                             </tr>
                             <tr>
                               <td>키</td>
-                              <td><%=result4data.height%></td>
+                              <td><%=resultdata.data.height%></td>
                             </tr>
                             <tr>
                               <td>나이</td>
-                              <td><%=result4data.age%></td>
+                              <td><%=resultdata.data.age%></td>
                             </tr>
                             <tr>
                               <td>학과</td>
-                              <td><%=result4data.major%></td>
+                              <td><%=resultdata.data.major%></td>
                             </tr>
                             <tr>
                               <td>흡연여부</td>
-                              <td><%=result4data.smoke%></td>
+                              <td><%=resultdata.data.smoke%></td>
                             </tr>
                             <tr>
                               <td>외모</td>
-                              <td><%=result4data.appearance%></td>
+                              <td><%=resultdata.data.appearance%></td>
                             </tr>
                           </table>
                           <div id="participant">참여자2</div>
                           <table>
                             <tr>
                               <td>학년</td>
-                              <td><%=result4data.grade1%></td>
+                              <td><%=resultdata.data.grade1%></td>
                             </tr>
                             <tr>
                               <td>키</td>
-                              <td><%=result4data.height1%></td>
+                              <td><%=resultdata.data.height1%></td>
                             </tr>
                             <tr>
                               <td>나이</td>
-                              <td><%=result4data.age1%></td>
+                              <td><%=resultdata.data.age1%></td>
                             </tr>
                             <tr>
                               <td>학과</td>
-                              <td><%=result4data.major1%></td>
+                              <td><%=resultdata.data.major1%></td>
                             </tr>
                             <tr>
                               <td>흡연여부</td>
-                              <td><%=result4data.smoke1%></td>
+                              <td><%=resultdata.data.smoke1%></td>
                             </tr>
                             <tr>
                               <td>외모</td>
-                              <td><%=result4data.appearance1%></td>
+                              <td><%=resultdata.data.appearance1%></td>
                             </tr>
                           </table>
                           <div id="participant">참여자3</div>
                           <table>
                             <tr>
                               <td>학년</td>
-                              <td><%=result4data.grade2%></td>
+                              <td><%=resultdata.data.grade2%></td>
                             </tr>
                             <tr>
                               <td>키</td>
-                              <td><%=result4data.height2%></td>
+                              <td><%=resultdata.data.height2%></td>
                             </tr>
                             <tr>
                               <td>나이</td>
-                              <td><%=result4data.age2%></td>
+                              <td><%=resultdata.data.age2%></td>
                             </tr>
                             <tr>
                               <td>학과</td>
-                              <td><%=result4data.major2%></td>
+                              <td><%=resultdata.data.major2%></td>
                             </tr>
                             <tr>
                               <td>흡연여부</td>
-                              <td><%=result4data.smoke2%></td>
+                              <td><%=resultdata.data.smoke2%></td>
                             </tr>
                             <tr>
                               <td>외모</td>
-                              <td><%=result4data.appearance2%></td>
+                              <td><%=resultdata.data.appearance2%></td>
                             </tr>
                           </table>
                           <div id="participant">참여자4</div>
                           <table>
                             <tr>
                               <td>학년</td>
-                              <td><%=result4data.grade2%></td>
+                              <td><%=resultdata.data.grade3%></td>
                             </tr>
                             <tr>
                               <td>키</td>
-                              <td><%=result4data.height2%></td>
+                              <td><%=resultdata.data.height3%></td>
                             </tr>
                             <tr>
                               <td>나이</td>
-                              <td><%=result4data.age2%></td>
+                              <td><%=resultdata.data.age3%></td>
                             </tr>
                             <tr>
                               <td>학과</td>
-                              <td><%=result4data.major2%></td>
+                              <td><%=resultdata.data.major3%></td>
                             </tr>
                             <tr>
                               <td>흡연여부</td>
-                              <td><%=result4data.smoke2%></td>
+                              <td><%=resultdata.data.smoke3%></td>
                             </tr>
                             <tr>
                               <td>외모</td>
-                              <td><%=result4data.appearance2%></td>
+                              <td><%=resultdata.data.appearance3%></td>
                             </tr>
-                            <tr>
-                              <td>수락 여부</td>
-                              <td><a href="/gongting-v3/us-central1/api/matching//yes">예</a>&nbsp;&nbsp;&nbsp;<a href="/gongting-v3/us-central1/api/matching//no">아니요</a></td>
-                            </tr>
+
+                            <%if(resultdata.status=='매칭중'){%>
+                              <tr>
+                                <td>수락 여부</td>
+                                <td><a href="/gongting-v3/us-central1/api/setting/allow">예</a>&nbsp;&nbsp;&nbsp;<a href="/gongting-v3/us-central1/api/setting/reject">아니요</a></td>
+                              </tr>
+                            <%}%>
+
+                            <%if(matchingResult == '성공'){%>
+                              <tr>
+                                <td>카카오톡 ID</td>
+                                <td><%=resultdata.data.kakaoid%></td>
+                              </tr>
+                            <%}else if(matchingResult == '실패'){%>
+                              <tr>
+                                <td>수락 여부</td>
+                                <td>아쉽게도 매칭에 실패하셨습니다.</td>
+                              </tr>
+                            <%}%>
+                              <!-- 수락 여부 누르면 끝 -->
                           </table>
                         </table>
                       </div>
