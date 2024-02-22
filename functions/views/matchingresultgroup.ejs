@@ -43,64 +43,252 @@
             </div>
         </header>
         <section>
+          <%if(result3data){%>
             <div class="matchingProfile">
                 <div class="matchingProfile-bottom">
                     <div class="base-info">
                         <p id="profileBottomTitle">기본정보</p>
+                        <table>
+                          <tr>
+                            <td>술게임 여부</td>
+                            <td><%=result3data.wishgame%></td>
+                          </tr>
+                          <tr>
+                            <td>술자리 분위기</td>
+                            <td><%=result3data.wishmood%></td>
+                          </tr>
+                          <tr>
+                            <td>한마디</td>
+                            <td><%=result3data.wishsay%></td>
+                          </tr>
+                        </table>
                         <div id="participant">참여자1</div>
                         <table>
                           <tr>
-                            <td>이름</td>
-                            <td>이름</td>
+                            <td>학년</td>
+                            <td><%=result3data.grade%></td>
                           </tr>
                           <tr>
-                          <td>나이</td>
-                          <td>나이</td>
-                        </tr>
-                        <tr>
-                          <td>학과</td>
-                          <td>학과</td>
-                        </tr>
+                            <td>키</td>
+                            <td><%=result3data.height%></td>
+                          </tr>
+                          <tr>
+                            <td>나이</td>
+                            <td><%=result3data.age%></td>
+                          </tr>
+                          <tr>
+                            <td>학과</td>
+                            <td><%=result3data.major%></td>
+                          </tr>
+                          <tr>
+                            <td>흡연여부</td>
+                            <td><%=result3data.smoke%></td>
+                          </tr>
+                          <tr>
+                            <td>외모</td>
+                            <td><%=result3data.appearance%></td>
+                          </tr>
                         </table>
                         <div id="participant">참여자2</div>
                         <table>
                           <tr>
-                            <td>이름</td>
-                            <td>이름</td>
-                        </tr>
-                        <tr>
-                          <td>나이</td>
-                          <td>나이</td>
-                        </tr>
-                        <tr>
-                          <td>학과</td>
-                          <td>학과</td>
-                        </tr>
+                            <td>학년</td>
+                            <td><%=result3data.grade1%></td>
+                          </tr>
+                          <tr>
+                            <td>키</td>
+                            <td><%=result3data.height1%></td>
+                          </tr>
+                          <tr>
+                            <td>나이</td>
+                            <td><%=result3data.age1%></td>
+                          </tr>
+                          <tr>
+                            <td>학과</td>
+                            <td><%=result3data.major1%></td>
+                          </tr>
+                          <tr>
+                            <td>흡연여부</td>
+                            <td><%=result3data.smoke1%></td>
+                          </tr>
+                          <tr>
+                            <td>외모</td>
+                            <td><%=result3data.appearance1%></td>
+                          </tr>
                         </table>
                         <div id="participant">참여자3</div>
                         <table>
                           <tr>
-                            <td>이름</td>
-                            <td>이름</td>
-                        </tr>
-                        <tr>
-                          <td>나이</td>
-                          <td>나이</td>
-                        </tr>
-                        <tr>
-                          <td>학과</td>
-                          <td>학과</td>
-                        </tr>
-                        <tr>
-                          <td>수락 여부</td>
-                          <td><a href="/gongting-v3/us-central1/api/matching//yes">예</a>&nbsp;&nbsp;&nbsp;<a href="/gongting-v3/us-central1/api/matching//no">아니요</a></td>
-                        </tr>
+                            <td>학년</td>
+                            <td><%=result3data.grade2%></td>
+                          </tr>
+                          <tr>
+                            <td>키</td>
+                            <td><%=result3data.height2%></td>
+                          </tr>
+                          <tr>
+                            <td>나이</td>
+                            <td><%=result3data.age2%></td>
+                          </tr>
+                          <tr>
+                            <td>학과</td>
+                            <td><%=result3data.major2%></td>
+                          </tr>
+                          <tr>
+                            <td>흡연여부</td>
+                            <td><%=result3data.smoke2%></td>
+                          </tr>
+                          <tr>
+                            <td>외모</td>
+                            <td><%=result3data.appearance2%></td>
+                          </tr>
+                          <tr>
+                            <td>수락 여부</td>
+                            <td><a href="/gongting-v3/us-central1/api/matching//yes">예</a>&nbsp;&nbsp;&nbsp;<a href="/gongting-v3/us-central1/api/matching//no">아니요</a></td>
+                          </tr>
                         </table>
                       </table>
                     </div>
-                    
                 </div>
             </div>
+            <%}else if(result4data){%>
+              <div class="matchingProfile">
+                  <div class="matchingProfile-bottom">
+                      <div class="base-info">
+                          <p id="profileBottomTitle">기본정보</p>
+                          <table>
+                            <tr>
+                              <td>술게임 여부</td>
+                              <td><%=result4data.wishgame%></td>
+                            </tr>
+                            <tr>
+                              <td>술자리 분위기</td>
+                              <td><%=result4data.wishmood%></td>
+                            </tr>
+                            <tr>
+                              <td>한마디</td>
+                              <td><%=result4data.wishsay%></td>
+                            </tr>
+                          </table>
+                          <div id="participant">참여자1</div>
+                          <table>
+                            <tr>
+                              <td>학년</td>
+                              <td><%=result4data.grade%></td>
+                            </tr>
+                            <tr>
+                              <td>키</td>
+                              <td><%=result4data.height%></td>
+                            </tr>
+                            <tr>
+                              <td>나이</td>
+                              <td><%=result4data.age%></td>
+                            </tr>
+                            <tr>
+                              <td>학과</td>
+                              <td><%=result4data.major%></td>
+                            </tr>
+                            <tr>
+                              <td>흡연여부</td>
+                              <td><%=result4data.smoke%></td>
+                            </tr>
+                            <tr>
+                              <td>외모</td>
+                              <td><%=result4data.appearance%></td>
+                            </tr>
+                          </table>
+                          <div id="participant">참여자2</div>
+                          <table>
+                            <tr>
+                              <td>학년</td>
+                              <td><%=result4data.grade1%></td>
+                            </tr>
+                            <tr>
+                              <td>키</td>
+                              <td><%=result4data.height1%></td>
+                            </tr>
+                            <tr>
+                              <td>나이</td>
+                              <td><%=result4data.age1%></td>
+                            </tr>
+                            <tr>
+                              <td>학과</td>
+                              <td><%=result4data.major1%></td>
+                            </tr>
+                            <tr>
+                              <td>흡연여부</td>
+                              <td><%=result4data.smoke1%></td>
+                            </tr>
+                            <tr>
+                              <td>외모</td>
+                              <td><%=result4data.appearance1%></td>
+                            </tr>
+                          </table>
+                          <div id="participant">참여자3</div>
+                          <table>
+                            <tr>
+                              <td>학년</td>
+                              <td><%=result4data.grade2%></td>
+                            </tr>
+                            <tr>
+                              <td>키</td>
+                              <td><%=result4data.height2%></td>
+                            </tr>
+                            <tr>
+                              <td>나이</td>
+                              <td><%=result4data.age2%></td>
+                            </tr>
+                            <tr>
+                              <td>학과</td>
+                              <td><%=result4data.major2%></td>
+                            </tr>
+                            <tr>
+                              <td>흡연여부</td>
+                              <td><%=result4data.smoke2%></td>
+                            </tr>
+                            <tr>
+                              <td>외모</td>
+                              <td><%=result4data.appearance2%></td>
+                            </tr>
+                          </table>
+                          <div id="participant">참여자4</div>
+                          <table>
+                            <tr>
+                              <td>학년</td>
+                              <td><%=result4data.grade2%></td>
+                            </tr>
+                            <tr>
+                              <td>키</td>
+                              <td><%=result4data.height2%></td>
+                            </tr>
+                            <tr>
+                              <td>나이</td>
+                              <td><%=result4data.age2%></td>
+                            </tr>
+                            <tr>
+                              <td>학과</td>
+                              <td><%=result4data.major2%></td>
+                            </tr>
+                            <tr>
+                              <td>흡연여부</td>
+                              <td><%=result4data.smoke2%></td>
+                            </tr>
+                            <tr>
+                              <td>외모</td>
+                              <td><%=result4data.appearance2%></td>
+                            </tr>
+                            <tr>
+                              <td>수락 여부</td>
+                              <td><a href="/gongting-v3/us-central1/api/matching//yes">예</a>&nbsp;&nbsp;&nbsp;<a href="/gongting-v3/us-central1/api/matching//no">아니요</a></td>
+                            </tr>
+                          </table>
+                        </table>
+                      </div>
+                  </div>
+              </div>
+            <%}else{%>
+              <h1>없어용</h1>
+            <%}%>
         </section>
         <footer>
           <nav>

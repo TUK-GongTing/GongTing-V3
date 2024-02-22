@@ -9,8 +9,8 @@
 <body>
     <form action="/gongting-v3/us-central1/api/admin/matching" method="post">
         <input type="hidden" name="_csrf" value="<%= csrfToken %>">
-        <input type="text" name="manUid">
-        <input type="text" name="womanUid">
+        <input type="text" name="manUid" placeholder='남자 uid'>
+        <input type="text" name="womanUid" placeholder='여자 uid'>
         <button type="submit">확인</button>
     </form>
 </body>

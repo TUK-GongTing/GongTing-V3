@@ -24,6 +24,11 @@
                 </a>
             </div>
         </header>
+        <%if(isSubmit){%>
+            <section>
+                신청한 내역이 있습니다.
+            </section>
+        <%}else{%>
           <section>
             <form action="/gongting-v3/us-central1/api/setting/groupmatching" method="post">
                 <input type="hidden" name="_csrf" value="<%= csrfToken %>">
@@ -93,6 +98,10 @@
                                 </div>
                                 <div id="name">
                                     <p class="title-box"></p>
+                                    <input type="text" placeholder="성격을 입력하세요." name="personality1">
+                                </div>
+                                <div id="name">
+                                    <p class="title-box"></p>
                                     <input type="text" placeholder="흡연여부를 입력하세요." name="smoke1">
                                 </div>
                                 <div id="name">
@@ -136,6 +145,10 @@
                                 </div>
                                 <div id="name">
                                     <p class="title-box"></p>
+                                    <input type="text" placeholder="성격을 입력하세요." name="personality1">
+                                </div>
+                                <div id="name">
+                                    <p class="title-box"></p>
                                     <input type="text" placeholder="흡연여부를 입력하세요." name="smoke1">
                                 </div>
                                 <div id="name">
@@ -161,6 +174,10 @@
                                     <div id="name">
                                         <p class="title-box"></p>
                                         <input type="text" placeholder="외모를 입력하세요." name="appearance2">
+                                    </div>
+                                    <div id="name">
+                                        <p class="title-box"></p>
+                                        <input type="text" placeholder="성격을 입력하세요." name="personality2">
                                     </div>
                                     <div id="name">
                                         <p class="title-box"></p>
@@ -208,6 +225,10 @@
                                 </div>
                                 <div id="name">
                                     <p class="title-box"></p>
+                                    <input type="text" placeholder="성격을 입력하세요." name="personality1">
+                                </div>
+                                <div id="name">
+                                    <p class="title-box"></p>
                                     <input type="text" placeholder="흡연여부를 입력하세요." name="smoke1">
                                 </div>
                                 <div id="name">
@@ -233,6 +254,10 @@
                                     <div id="name">
                                         <p class="title-box"></p>
                                         <input type="text" placeholder="외모를 입력하세요." name="appearance2">
+                                    </div>
+                                    <div id="name">
+                                        <p class="title-box"></p>
+                                        <input type="text" placeholder="성격을 입력하세요." name="personality2">
                                     </div>
                                     <div id="name">
                                         <p class="title-box"></p>
@@ -265,6 +290,10 @@
                                     </div>
                                     <div id="name">
                                         <p class="title-box"></p>
+                                        <input type="text" placeholder="성격을 입력하세요." name="personality3">
+                                    </div>
+                                    <div id="name">
+                                        <p class="title-box"></p>
                                         <input type="text" placeholder="흡연여부를 입력하세요." name="smoke3">
                                     </div>
                                     <div id="name">
@@ -282,7 +311,6 @@
                             <button onclick="wishcount4Done(event)" id="next"> 다음 </button>
                         </div>
                     </div>
-
                     <div id="thrid" style="display: none;">
                         <div id="stepbar">
                             <svg xmlns="http://www.w3.org/2000/svg" width="420" height="4" viewBox="0 0 420 4" fill="none">
@@ -340,6 +368,7 @@
                 </div>
             </form>
           </section>
+          <%}%>
           <script src="js/profileSet.js">
           </script>
         </div>

@@ -71,6 +71,9 @@
                       <li>타인의 학생증을 도용할 시 법적인 책임을 질 수 있습니다.</li>
                       
                   </div>
+                  <input type="text" id="studentnum">
+                  <input type="text" id="grade">
+                  <input type="text" id="major">
                   <div id="div-button">
                       <button id="subbutton" type="submit"> 
                         제출하기
@@ -143,6 +146,10 @@
         try{
           document.getElementById("subbutton").addEventListener('click',async(e)=>{
             e.preventDefault()
+            const studentnum = document.getElementById('studentnum').value
+            const grade = document.getElementById('grade').value
+            const major = document.getElementById('major').value
+            
             const file = document.querySelector("#fileInput").files[0];
             const storageRef = ref(storage, 'studentnum/'+Date.now()+file.name);
             const metadata = {
@@ -152,6 +159,9 @@
             const getURL = await getDownloadURL(storageRef);
             alert('진행 중입니다. 확인 버튼을 누르신 후 잠시동안 기다려주세요.')
             await updateDoc(doc(db, "users", uid), {
+              studentnum,
+              grade,
+              major,
               verify:'확인중',
               verifyurl:getURL,
             });

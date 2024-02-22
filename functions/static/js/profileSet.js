@@ -1,5 +1,5 @@
-var hobbyMaxCount = 5;
-var traitMaxCount = 5;
+var hobbyMaxCount = 1;
+var traitMaxCount = 1;
 var hobbyCount = 0;
 var traitCount = 0;
 
@@ -12,7 +12,7 @@ function hobbyChecked(event) {
   }
 
   if (hobbyCount > hobbyMaxCount) {
-    alert ("최대 5개까지만 선택 가능합니다.");
+    alert ("최대 1개까지만 선택 가능합니다.");
     event.checked = false;
     hobbyCount -= 1;
   }
@@ -100,6 +100,7 @@ function fristDone(event) {
                   thridDiv.style.display = 'none';
                   fourDiv.style.display = 'block';
                 }
+
                 function thridDone(event) {
                     event.preventDefault();
                     let thridDiv = document.getElementById('thrid');

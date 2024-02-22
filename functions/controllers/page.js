@@ -5,7 +5,6 @@ exports.home = async(req,res) =>{
     const {verify,kverify} = (await db.collection('users').doc(req.cookies.uid).get()).data();
     return res.render("home",{verify,kverify})
 }
-
 exports.welcome = async (req,res) =>{
     return res.render("welcome");
 }
@@ -19,15 +18,13 @@ exports.intro = (req,res) =>{
     return res.render("intro")
 }
 exports.matchingresultgroup = async(req,res) =>{
-    return res.render("matchingresultgroup");
+    const result = (await db.collection('matching_result').doc(req.cookies.uid).get()).data() ?? undefined ;
+    return res.render("matchingresultgroup",{result});
 }
-
-
 exports.myprofile = async (req,res) =>{
     const userdata = await pageService.userdata(req.cookies.uid);
-    return res.render("myprofile",{name:await pageService.username(req.cookies.uid),chars:await pageService.userchar(req.cookies.uid),userdata})
+    return res.render("myprofile",{userdata})
 }
-
 
 exports.viewprofilepage = async (req,res) =>{
     const userdata = await pageService.alluserprofile(req.cookies.uid);
@@ -50,6 +47,7 @@ exports.verifypage = async (req,res) => {
 exports.mypset = (req,res) =>{ // 내프로필 설정
     return res.render("myprofileset",{ csrfToken: req.csrfToken()})
 }
-exports.gpset = (req,res) =>{ // 그룹매칭 프로필 설정
-    return res.render("groupmatching",{ csrfToken: req.csrfToken()})
+exports.gpset = async (req,res) =>{ // 그룹매칭 프로필 설정
+    const isSubmit = (await db.collection('matching_submit').doc(uid).get()).data() ?? undefined;
+    return res.render("groupmatching",{ isSubmit,csrfToken: req.csrfToken()})
 }
