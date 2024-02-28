@@ -16,6 +16,7 @@ const path = require('path');
 const pageRouter = require('./router/page');
 const authRouter = require('./router/auth');
 const settingRouter = require('./router/setting');
+const adminRouter = require('./router/admin');
 
 app.set('view engine', 'ejs');
 app.set('html',require('ejs').renderFile);
@@ -36,5 +37,6 @@ app.all("*", (req, res, next) => {
 app.use('/',pageRouter);
 app.use('/auth',authRouter);
 app.use('/setting',settingRouter);
+app.use('/admin',adminRouter);
 
 exports.api = functions.https.onRequest(app);

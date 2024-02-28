@@ -1,5 +1,5 @@
-var hobbyMaxCount = 5;
-var traitMaxCount = 5;
+var hobbyMaxCount = 1;
+var traitMaxCount = 1;
 var hobbyCount = 0;
 var traitCount = 0;
 
@@ -12,7 +12,7 @@ function hobbyChecked(event) {
   }
 
   if (hobbyCount > hobbyMaxCount) {
-    alert ("최대 5개까지만 선택 가능합니다.");
+    alert ("최대 1개까지만 선택 가능합니다.");
     event.checked = false;
     hobbyCount -= 1;
   }
@@ -65,6 +65,13 @@ function fristDone(event) {
                     secondDiv.style.display = 'none';
                     thridDiv.style.display = 'block';
                 }
+                function myfristDone(event) {
+                  event.preventDefault();
+                  let fristDiv = document.getElementById('frist');
+                  let secondDiv = document.getElementById('second');
+                  fristDiv.style.display = 'none';
+                  secondDiv.style.display = 'block';
+               }
                 function wishcount2Done(event) {
                   event.preventDefault();
                   let secondDiv = document.getElementById('wishcount2');
@@ -86,6 +93,14 @@ function fristDone(event) {
                   secondDiv.style.display = 'none';
                   thridDiv.style.display = 'block';
                 }
+                function mythridDone(event) {
+                  event.preventDefault();
+                  let thridDiv = document.getElementById('thrid');
+                  let fourDiv = document.getElementById('four');
+                  thridDiv.style.display = 'none';
+                  fourDiv.style.display = 'block';
+                }
+
                 function thridDone(event) {
                     event.preventDefault();
                     let thridDiv = document.getElementById('thrid');

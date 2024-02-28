@@ -38,42 +38,46 @@
             <rect width="35" height="23" fill="white"/>
             </clipPath>
             </defs>
-            </svg>
+          </svg>
         </div>
       </div>
         <section>
+          <%if(!(verify=='인증완료'&&kverify=='인증완료')){%>
           <div class="matchingProfile">
             <div class="matchingProfile-toptop">
               <div class="matchingProfile-top">
                 <p id="profileBottomTitle">인증 상태창</p>
                 <table>
-                  <%if(verify =='인증'){%>
-                    <tr>학생증 인증 성공!<br></tr>
-                  <%}else if(verify =='확인중'){%>
+                  <%if(verify =='확인중'){%>
                     <tr>학생증 인증 인증중!<br></tr>
                   <%}else if(verify =='반려됨'){%>
                     <tr>학생증 인증 반려됨<br></tr>
-                  <%}else if(verify =='미인증'){%>
+                  <%}else if(verify =="미인증"){%>
                     <tr>학생증 미인증<br></tr>
                   <%}%>
-                  <%if(kverify =='인증'){%>
-                    <tr>카카오채널 인증 성공!</tr>
-                  <%}else if(kverify =='확인중'){%>
+                  <%if(kverify =='확인중'){%>
                     <tr>카카오채널 인증 인증중!</tr>
                   <%}else if(kverify =='반려됨'){%>
                     <tr>카카오채널 인증 반려됨</tr>
-                  <%}else if(kverify =='미인증'){%>
-                    <tr>카카오채널 미인증</tr>
+                  <%}else if(kverify =="미인증"){%>
+                      <tr>카카오채널 미인증<br></tr>
                   <%}%>
                 </table>
               </div>
             </div>
           </div>
+          <%}%>
           <div class="machingBoxes">
             <div class="matchingBox">
                   <div class="matching-text">
                     <p id="matching-text-title">단체 매칭</p>
-                    <p id="matching-text-sub">1:1 매칭이 부담스럽다면<br>단체 매칭에 도전해보세요!</p>
+                    <%if(isSubmit&&isResult){%>
+                    <p id="matching-text-sub">매칭이 완료되었어요.<br>지금 바로 확인해보세요!</p>
+                    <%}else if(isSubmit&&!isResult){%>
+                      <p id="matching-text-sub">공팅에서 열심히<br>과팅 인원을 찾고 있어요!</p>
+                    <%}else{%>
+                      <p id="matching-text-sub">1:1 매칭이 부담스럽다면<br>단체 매칭에 도전해보세요!</p>
+                    <%}%>
                   </div>
                   <button id="apply-button" onclick="location.href = '/gongting-v3/us-central1/api/groupmatching';">신청하기</button>
             </div>

@@ -78,8 +78,6 @@
             const date = new Date(Date.now());
             if(password != checkpassword){
                 alert('비밀번호가 일치하지 않습니다!');
-            }else if(name == ''){
-                alert('이름을 입력해주세요.');
             }else{
                 try{
                     const {user} = await firebase.auth().createUserWithEmailAndPassword(email, password)
@@ -95,7 +93,11 @@
                     });
                     alert("회원가입 중입니다. 잠시만 기다려주세요")
                     await firebase.firestore().collection('users').doc(user.uid).set({
+                        uid:user.uid,
                         email,
+                        studentnum:"",
+                        grade:"",
+                        major:"",
                         verify:'미인증',
                         kverify:'미인증',
                         verifyurl:'',

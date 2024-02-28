@@ -24,13 +24,13 @@
                 </a>
             </div>
         </header>
-        <%if(isSubmit){%>
+        <%if(!isSubmit){%>
             <section>
-                신청한 내역이 있습니다.
+                신청한 내역이 없습니다.
             </section>
         <%}else{%>
           <section>
-            <form action="/gongting-v3/us-central1/api/setting/groupmatching" method="post">
+            <form action="/gongting-v3/us-central1/api/setting/groupmatching1" method="post">
                 <input type="hidden" name="_csrf" value="<%= csrfToken %>">
                 <div class="profile-dropdown">
                     <div id="frist" >
@@ -115,7 +115,9 @@
                             </div>
                         </div>
                         <div id="div-button">
-                            <button onclick="wishcount2Done(event)" id="next"> 다음 </button>
+                            <button id="subbutton" type="submit">
+                                신청하기
+                            </button>
                         </div>
                     </div>
 
@@ -195,7 +197,9 @@
                             </div>
                         </div>
                         <div id="div-button">
-                            <button onclick="wishcount3Done(event)" id="next"> 다음 </button>
+                            <button id="subbutton" type="submit">
+                                신청하기
+                            </button>
                         </div>
                     </div>
 
@@ -308,58 +312,6 @@
                             </div>
                         </div>
                         <div id="div-button">
-                            <button onclick="wishcount4Done(event)" id="next"> 다음 </button>
-                        </div>
-                    </div>
-                    <div id="thrid" style="display: none;">
-                        <div id="stepbar">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="420" height="4" viewBox="0 0 420 4" fill="none">
-                                <rect x="20" width="380" height="4" rx="2" fill="#EAE9E9"/>
-                                <rect x="20" width="220" height="4" rx="2" fill="#7D67FF"/>
-                                </svg>
-                        </div>
-                        <div class="title">
-                            <p id="title-text">선호하는 상대팀 정보를 <br>입력해주세요.</p>
-                        </div>
-                        <div id="profile-dropdown-center">
-                            <div id="myprofileSetting">
-                                <div id="name">
-                                    <p class="title-box"></p>
-                                    <input type="text" placeholder="선호하는 상대팀의 평균 나이를 입력해주세요." name="wishage">
-                                </div>
-                                <div id="name">
-                                    <p class="title-box"></p>
-                                    <input type="text" placeholder="선호하는 미팅 분위기를 입력해주세요" name="wishmood">
-                                </div>
-                                <div id="name">
-                                    <p class="title-box"></p>
-                                    <input type="text" placeholder="술게임 여부를 선택해주세요" name="wishgame">
-                                </div>
-                            </div>
-                        </div>
-                        <div id="div-button">
-                            <button onclick="thridDone(event)" id="next"> 다음 </button>
-                        </div>
-                    </div>
-                    <div id="fourdiv" style="display: none;">
-                        <div id="stepbar">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="420" height="4" viewBox="0 0 420 4" fill="none">
-                                <rect x="20" width="380" height="4" rx="2" fill="#EAE9E9"/>
-                                <rect x="20" width="316" height="4" rx="2" fill="#7D67FF"/>
-                                </svg>
-                        </div>
-                        <div class="title">
-                            <p id="title-text">상대방에게 하고싶은말</p>
-                        </div>
-                        <div id="profile-dropdown-center">
-                            <div id="myprofileSetting">
-                                <div id="name">
-                                    <p class="title-box"></p>
-                                    <input type="text" placeholder="상대방에게 하고싶은말을 적어주세요" name="wishsay">
-                                </div>
-                            </div>
-                        </div>
-                        <div id="div-button">
                             <button id="subbutton" type="submit">
                                 신청하기
                             </button>
@@ -367,10 +319,10 @@
                     </div>
                 </div>
             </form>
-          </section>
-          <%}%>
-          <script src="js/profileSet.js">
-          </script>
-        </div>
+        </section>
+        <%}%>
+        <script src="js/profileSet.js">
+        </script>
+    </div>
 </body>
 </html>
