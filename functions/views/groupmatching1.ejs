@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>공팅</title>
+    <link rel="stylesheet" href="css/MatchingSet.css">
+    <link rel="icon" href="pavicon/pavicon_png.png">
+</head>
+<body>
+    <div class="body">
+        <header>
+            <div id="back-icon">
+                <a href="">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none">
+                        <path d="M24.8414 12.8414L15.6827 22L24.8414 31.1587" stroke="#111111" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+                <p>그룹 매칭 신청</p>
+                <a id="x-botton" href="/">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none">
+                        <path d="M28.9956 15.0061L15.0073 28.9915M29 29L15 15" stroke="#111111" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </div>
+        </header>
+        <%if(!isSubmit){%>
+            <section>
+                신청한 내역이 없습니다.
+            </section>
+        <%}else{%>
+          <section>
+            <form action="/gongting-v3/us-central1/api/setting/groupmatching1" method="post">
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                <div class="profile-dropdown">
+                    <div id="frist" >
+                        <div id="stepbar">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="420" height="4" viewBox="0 0 420 4" fill="none">
+                                <rect x="20" width="380" height="4" rx="2" fill="#EAE9E9"/>
+                                <rect x="20" width="47" height="4" rx="2" fill="#7D67FF"/>
+                            </svg>
+                        </div>
+                        <div class="title">
+                            <p id="title-text">친구와 함께 신청하시나요?</p>
+                            <p id="sub-text">혼자 신청해도 단체매칭을 자동으로 연결해드려요.</p>
+                        </div>
+                        <div id="profile-dropdown-center">
+                            <div id="myprofileSetting">
+                                <div class="sex-group">
+                                    <div class="sex-checkbox">
+                                        <input type="checkbox" id="two" name="wishcount" value="2" onclick="threeCheckbox('two','three','four')">
+                                        <label for="two">
+                                            <p class="sex-title">2대2</p>
+                                        </label>
+                            
+                                        <input type="checkbox" id="three" name="wishcount" value="3" onclick="threeCheckbox('two','three','four')">
+                                        <label for="three">
+                                            <p class="sex-title">3대3</p>
+                                        </label>
+                                        
+                                        <input type="checkbox" id="four" name="wishcount" value="4" onclick="threeCheckbox('two','three','four')">
+                                        <label for="four">
+                                            <p class="sex-title">4대4</p>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div id="div-button">
+                            <button onclick="fristDone(event)" id="next"> 다음 </button>
+                        </div>
+                    </div>
+
+                    <div id="wishcount2" style="display: none;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="420" height="4" viewBox="0 0 420 4" fill="none">
+                            <rect x="20" width="380" height="4" rx="2" fill="#EAE9E9"/>
+                            <rect x="20" width="132" height="4" rx="2" fill="#7D67FF"/>
+                            </svg>
+                        <div class="title">
+                            <p id="title-text">참여자 정보</p>
+                            <p id="sub-text">모든 참여자의 정보를 입력해주세요.</p>
+                        </div>
+                        <div id="profile-dropdown-center">
+                            <p id="participant">참여자1</p>
+                            <div id="myprofileSetting">
+                                <div id="name">
+                                    <p class="title-box"></p>
+                                    <input type="text" placeholder="키를 입력하세요." name="height1">
+                                </div>
+                                <div id="name">
+                                    <p class="title-box"></p>
+                                    <input type="text" placeholder="나이를 입력하세요." name="age1">
+                                </div>
+                                <div id="name">
+                                    <p class="title-box"></p>
+                                    <input type="text" placeholder="외모를 입력하세요." name="appearance1">
+                                </div>
+                                <div id="name">
+                                    <p class="title-box"></p>
+                                    <input type="text" placeholder="성격을 입력하세요." name="personality1">
+                                </div>
+                                <div id="name">
+                                    <p class="title-box"></p>
+                                    <input type="text" placeholder="흡연여부를 입력하세요." name="smoke1">
+                                </div>
+                                <div id="name">
+                                    <p class="title-box"></p>
+                                    <input type="text" placeholder="전공을 입력하세요." name="major1">
+                                </div>
+                                <div id="name">
+                                    <p class="title-box"></p>
+                                    <input type="text" placeholder="학년을 입력하세요." name="grade1">
+                                </div>
+                            </div>
+                        </div>
+                        <div id="div-button">
+                            <button id="subbutton" type="submit">
+                                신청하기
+                            </button>
+                        </div>
+                    </div>
+
+                    <div id="wishcount3" style="display: none;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="420" height="4" viewBox="0 0 420 4" fill="none">
+                            <rect x="20" width="380" height="4" rx="2" fill="#EAE9E9"/>
+                            <rect x="20" width="132" height="4" rx="2" fill="#7D67FF"/>
+                            </svg>
+                        <div class="title">
+                            <p id="title-text">참여자 정보</p>
+                            <p id="sub-text">모든 참여자의 정보를 입력해주세요.</p>
+                        </div>
+                        <div id="profile-dropdown-center">
+                            <p id="participant">참여자1</p>
+                            <div id="myprofileSetting">
+                                <div id="name">
+                                    <p class="title-box"></p>
+                                    <input type="text" placeholder="키를 입력하세요." name="height1">
+                                </div>
+                                <div id="name">
+                                    <p class="title-box"></p>
+                                    <input type="text" placeholder="나이를 입력하세요." name="age1">
+                                </div>
+                                <div id="name">
+                                    <p class="title-box"></p>
+                                    <input type="text" placeholder="외모를 입력하세요." name="appearance1">
+                                </div>
+                                <div id="name">
+                                    <p class="title-box"></p>
+                                    <input type="text" placeholder="성격을 입력하세요." name="personality1">
+                                </div>
+                                <div id="name">
+                                    <p class="title-box"></p>
+                                    <input type="text" placeholder="흡연여부를 입력하세요." name="smoke1">
+                                </div>
+                                <div id="name">
+                                    <p class="title-box"></p>
+                                    <input type="text" placeholder="전공을 입력하세요." name="major1">
+                                </div>
+                                <div id="name">
+                                    <p class="title-box"></p>
+                                    <input type="text" placeholder="학년을 입력하세요." name="grade1">
+                                </div>
+                            </div>
+                            <div id="profile-dropdown-center">
+                                <p id="participant">참여자2</p>
+                                <div id="myprofileSetting">
+                                    <div id="name">
+                                        <p class="title-box"></p>
+                                        <input type="text" placeholder="키를 입력하세요." name="height2">
+                                    </div>
+                                    <div id="name">
+                                        <p class="title-box"></p>
+                                        <input type="text" placeholder="나이를 입력하세요." name="age2">
+                                    </div>
+                                    <div id="name">
+                                        <p class="title-box"></p>
+                                        <input type="text" placeholder="외모를 입력하세요." name="appearance2">
+                                    </div>
+                                    <div id="name">
+                                        <p class="title-box"></p>
+                                        <input type="text" placeholder="성격을 입력하세요." name="personality2">
+                                    </div>
+                                    <div id="name">
+                                        <p class="title-box"></p>
+                                        <input type="text" placeholder="흡연여부를 입력하세요." name="smoke2">
+                                    </div>
+                                    <div id="name">
+                                        <p class="title-box"></p>
+                                        <input type="text" placeholder="전공을 입력하세요." name="major2">
+                                    </div>
+                                    <div id="name">
+                                        <p class="title-box"></p>
+                                        <input type="text" placeholder="학년을 입력하세요." name="grade2">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="div-button">
+                            <button id="subbutton" type="submit">
+                                신청하기
+                            </button>
+                        </div>
+                    </div>
+
+                    <div id="wishcount4" style="display: none;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="420" height="4" viewBox="0 0 420 4" fill="none">
+                            <rect x="20" width="380" height="4" rx="2" fill="#EAE9E9"/>
+                            <rect x="20" width="132" height="4" rx="2" fill="#7D67FF"/>
+                            </svg>
+                        <div class="title">
+                            <p id="title-text">참여자 정보</p>
+                            <p id="sub-text">모든 참여자의 정보를 입력해주세요.</p>
+                        </div>
+                        <div id="profile-dropdown-center">
+                            <p id="participant">참여자1</p>
+                            <div id="myprofileSetting">
+                                <div id="name">
+                                    <p class="title-box"></p>
+                                    <input type="text" placeholder="키를 입력하세요." name="height1">
+                                </div>
+                                <div id="name">
+                                    <p class="title-box"></p>
+                                    <input type="text" placeholder="나이를 입력하세요." name="age1">
+                                </div>
+                                <div id="name">
+                                    <p class="title-box"></p>
+                                    <input type="text" placeholder="외모를 입력하세요." name="appearance1">
+                                </div>
+                                <div id="name">
+                                    <p class="title-box"></p>
+                                    <input type="text" placeholder="성격을 입력하세요." name="personality1">
+                                </div>
+                                <div id="name">
+                                    <p class="title-box"></p>
+                                    <input type="text" placeholder="흡연여부를 입력하세요." name="smoke1">
+                                </div>
+                                <div id="name">
+                                    <p class="title-box"></p>
+                                    <input type="text" placeholder="전공을 입력하세요." name="major1">
+                                </div>
+                                <div id="name">
+                                    <p class="title-box"></p>
+                                    <input type="text" placeholder="학년을 입력하세요." name="grade1">
+                                </div>
+                            </div>
+                            <div id="profile-dropdown-center">
+                                <p id="participant">참여자2</p>
+                                <div id="myprofileSetting">
+                                    <div id="name">
+                                        <p class="title-box"></p>
+                                        <input type="text" placeholder="키를 입력하세요." name="height2">
+                                    </div>
+                                    <div id="name">
+                                        <p class="title-box"></p>
+                                        <input type="text" placeholder="나이를 입력하세요." name="age2">
+                                    </div>
+                                    <div id="name">
+                                        <p class="title-box"></p>
+                                        <input type="text" placeholder="외모를 입력하세요." name="appearance2">
+                                    </div>
+                                    <div id="name">
+                                        <p class="title-box"></p>
+                                        <input type="text" placeholder="성격을 입력하세요." name="personality2">
+                                    </div>
+                                    <div id="name">
+                                        <p class="title-box"></p>
+                                        <input type="text" placeholder="흡연여부를 입력하세요." name="smoke2">
+                                    </div>
+                                    <div id="name">
+                                        <p class="title-box"></p>
+                                        <input type="text" placeholder="전공을 입력하세요." name="major2">
+                                    </div>
+                                    <div id="name">
+                                        <p class="title-box"></p>
+                                        <input type="text" placeholder="학년을 입력하세요." name="grade2">
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="profile-dropdown-center">
+                                <p id="participant">참여자3</p>
+                                <div id="myprofileSetting">
+                                    <div id="name">
+                                        <p class="title-box"></p>
+                                        <input type="text" placeholder="키를 입력하세요." name="height3">
+                                    </div>
+                                    <div id="name">
+                                        <p class="title-box"></p>
+                                        <input type="text" placeholder="나이를 입력하세요." name="age3">
+                                    </div>
+                                    <div id="name">
+                                        <p class="title-box"></p>
+                                        <input type="text" placeholder="외모를 입력하세요." name="appearance3">
+                                    </div>
+                                    <div id="name">
+                                        <p class="title-box"></p>
+                                        <input type="text" placeholder="성격을 입력하세요." name="personality3">
+                                    </div>
+                                    <div id="name">
+                                        <p class="title-box"></p>
+                                        <input type="text" placeholder="흡연여부를 입력하세요." name="smoke3">
+                                    </div>
+                                    <div id="name">
+                                        <p class="title-box"></p>
+                                        <input type="text" placeholder="전공을 입력하세요." name="major3">
+                                    </div>
+                                    <div id="name">
+                                        <p class="title-box"></p>
+                                        <input type="text" placeholder="학년을 입력하세요." name="grade3">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="div-button">
+                            <button id="subbutton" type="submit">
+                                신청하기
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </section>
+        <%}%>
+        <script src="js/profileSet.js">
+        </script>
+    </div>
+</body>
+</html>

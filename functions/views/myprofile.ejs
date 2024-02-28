@@ -46,8 +46,11 @@
             <div class="profile">
                 <div id="profileTop">
                   <div id="info">
+                    <div id="avatar">
+                      <img id="charss" src="<%=userdata.chars%>">
+                    </div>
                     <div id="nameButton">
-                      <p id="name"></p> 
+                      <p id="name"><%=userdata.name%></p> 
                       <button onclick="location.href='/gongting-v3/us-central1/api/viewprofile'">내 프로필</button>
                     </div>
                   </div>
@@ -78,6 +81,38 @@
                   <div id="verify">
                     <p>학생증 인증 </p>
                     <a href="/gongting-v3/us-central1/api/verifypage">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M10.4502 16.9961L15.4458 12.0005L10.4502 7.00485" stroke="#5F5F5F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </a>
+                  </div>
+                  <div id="verify">
+                    <p>내 프로필 설정 </p>
+                    <a href="/gongting-v3/us-central1/api/myprofileset">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M10.4502 16.9961L15.4458 12.0005L10.4502 7.00485" stroke="#5F5F5F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </a>
+                  </div>
+                  <div id="verify">
+                    <p>과팅 매칭 정보 설정 </p>
+                    <a href="/gongting-v3/us-central1/api/groupmatching1">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M10.4502 16.9961L15.4458 12.0005L10.4502 7.00485" stroke="#5F5F5F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </a>
+                  </div>
+                  <div id="verify">
+                    <p>과팅 매칭 이상형 정보 설정 </p>
+                    <a href="/gongting-v3/us-central1/api/groupmatching2">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M10.4502 16.9961L15.4458 12.0005L10.4502 7.00485" stroke="#5F5F5F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </a>
+                  </div>
+                  <div id="verify">
+                    <p>과팅 매칭 자기소개 설정 </p>
+                    <a href="/gongting-v3/us-central1/api/groupmatching3">
                       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                         <path d="M10.4502 16.9961L15.4458 12.0005L10.4502 7.00485" stroke="#5F5F5F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                       </svg>

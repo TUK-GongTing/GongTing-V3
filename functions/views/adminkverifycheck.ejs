@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="pavicon/pavicon_png.png">
+    <title>어드민</title>
+</head>
+<body>
+        <table>
+            <tr>
+                <th>카카오톡 채널</th>
+                <th>사진</th>
+                <th>확인</th>
+                <th>반려</th>
+            </tr>
+
+            <% verifyData.forEach((doc) => { %>
+                    <tr>
+                        <td><%= doc.data().kverify   %></td>
+                        <td><a href="<%= doc.data().kverifyurl %>">확인</a></td>
+                        <td>
+                            <form action="/gongting-v3/us-central1/api/admin/kverify/allow/<%= doc.data().uid %>" method="post">
+                                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                                <button type="submit">확인</button>
+                            </form>
+                        </td>
+                        <td>
+                            <form action="/gongting-v3/us-central1/api/admin/kverify/reject/<%= doc.data().uid %>" method="post">
+                                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                                <input type="text" name="kverifymessage">
+                                <button type="submit">반려</button>
+                            </form>
+                        </td>
+                    </tr>
+            <% }) %>
+            
+        </table>
+</body>
+</html>
